@@ -1,4 +1,4 @@
-<img src="./src/assets/images/logo1.jpg" alt="IFInclusivo" style="width: 50px; height: 50px">
+<img src="./src/assets/images/logo1.jpg" alt="IFInclusivo" style="width: 100px; height: 100px">
 
 
 # IFInclusivoFrontEnd
