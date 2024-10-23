@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TelaForumRoutingModule } from './tela-forum-routing.module';
-import { ContainersComponent } from './containers/containers.component';
-
+import { TelaForumComponent } from './containers/tela-forum/tela-forum.component';
 
 @NgModule({
   declarations: [
-    ContainersComponent
+    TelaForumComponent
   ],
   imports: [
     CommonModule,
