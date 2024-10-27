@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { SharedModule } from '../../../shared/shared.module';
 import { TelaInicialRoutingModule } from './tela-inicial-routing.module';
-import { TelaInicialComponent } from './containers/tela-inicial/tela-inicial.component';
+import { HomeComponent } from './container/home/home.component';
 
 @NgModule({
   declarations: [
-    TelaInicialComponent
+    HomeComponent
   ],
   imports: [
     CommonModule,
-    TelaInicialRoutingModule
+    TelaInicialRoutingModule,
+    SharedModule
   ],
   exports: [
-    TelaInicialComponent
+    HomeComponent
   ]
 })
 export class TelaInicialModule { }

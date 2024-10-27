@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TelaForumRoutingModule } from './tela-forum-routing.module';
-import { TelaForumComponent } from './containers/tela-forum/tela-forum.component';
+import { TelaForumComponent } from './container/tela-forum/tela-forum.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { TelaForumComponent } from './containers/tela-forum/tela-forum.component
   ],
   imports: [
     CommonModule,
-    TelaForumRoutingModule
+    TelaForumRoutingModule,
+    SharedModule
   ]
 })
 export class TelaForumModule { }

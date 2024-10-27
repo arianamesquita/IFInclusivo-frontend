@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TelaForumComponent } from './containers/tela-forum/tela-forum.component';
+import { TelaForumComponent } from './container/tela-forum/tela-forum.component';
 
 const routes: Routes = [
   { path: '', component: TelaForumComponent }

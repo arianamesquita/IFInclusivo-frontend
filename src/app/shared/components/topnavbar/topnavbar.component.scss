@@ -1,0 +1,61 @@
+@import '/src/assets/colors/colors.scss';
+@import '/src/assets/fonts/fonts.scss';
+.box {
+    width: 100%;
+    height: 150px;
+    background-color: $green;
+    display: flex;
+    flex-direction: row;
+}
+.container {
+    position: relative;
+    width: 20%;
+}
+
+.bubble_purple {
+    position: absolute;
+    top: -50px;
+    right: 0px;
+    z-index: 1;
+}
+
+.bubble_cyan {
+    position: absolute;
+    top: -30px;
+    right: -10px;
+    z-index: 2; 
+}
+.box_logo {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .logo {
+        width: 28vw;
+    }
+}
+.box_btns {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    .buttons{
+        background-color: $btn-purple;
+        height: 40px;
+        border-radius: 12px;
+    }
+    .login{
+        width: 140px;
+    }
+    .cadastro {
+        width: 190px;
+    }
+    .text_btn{
+        color: $btn-text;
+        font-family: 'Poppins-600';
+        font-size: 18px;
+    }
+}

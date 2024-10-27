@@ -6,10 +6,17 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { HttpClientModule } from '@angular/common/http';
+import { TopnavbarComponent } from './components/topnavbar/topnavbar.component';
+import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
+import { FooterComponent } from './components/footer/footer.component';
+
 
 
 @NgModule({
   declarations: [
+    TopnavbarComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatCardModule,
     MatExpansionModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    RouterModule
   ],
   exports: [
     MatInputModule,
@@ -26,10 +35,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatLabel,
     MatCardModule,
     MatExpansionModule,
-    HttpClientModule
-   ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ]
+    HttpClientModule,
+    TopnavbarComponent,
+    MatButtonModule,
+    RouterModule, 
+    FooterComponent
+   ]
 })
 export class SharedModule { }

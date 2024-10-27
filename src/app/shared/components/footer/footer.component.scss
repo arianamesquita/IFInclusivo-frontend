@@ -1,0 +1,16 @@
+.box .container {
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+.wave_cyan{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+.wave_purple{
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    bottom: 0;
+}
