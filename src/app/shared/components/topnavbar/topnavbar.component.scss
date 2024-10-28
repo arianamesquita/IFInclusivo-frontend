@@ -1,7 +1,7 @@
 @import '/src/assets/colors/colors.scss';
 @import '/src/assets/fonts/fonts.scss';
 .box {
-    width: 100%;
+    width: 100vw;
     height: 150px;
     background-color: $green;
     display: flex;
@@ -15,16 +15,17 @@
 .bubble_purple {
     position: absolute;
     top: -50px;
-    right: 0px;
+    right: 0;
     z-index: 1;
 }
 
 .bubble_cyan {
     position: absolute;
     top: -30px;
-    right: -10px;
+    right: 0;
     z-index: 2; 
 }
+
 .box_logo {
     height: 100%;
     width: 40%;
@@ -44,7 +45,7 @@
     gap: 20px;
     .buttons{
         background-color: $btn-purple;
-        height: 40px;
+        height: 50px;
         border-radius: 12px;
     }
     .login{
@@ -57,5 +58,7 @@
         color: $btn-text;
         font-family: 'Poppins-600';
         font-size: 18px;
+        display: flex;
+        align-items: center;
     }
 }

@@ -1,16 +1,63 @@
-.box .container {
+@import '/src/assets/colors/colors.scss';
+@import '/src/assets/fonts/fonts.scss';
+.box {
     position: relative;
-    width: 100%;
-    bottom: 0;
+    width: 100vw;
+    height: 380px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+    background-color: $background;
 }
-.wave_cyan{
+
+.box::before {
+    content: "";
     position: absolute;
-    width: 100%;
-    bottom: 0;
-}
-.wave_purple{
-    position: absolute;
-    width: 100%;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background-image: url("../../../../assets/images/footer_waves.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
     z-index: 1;
-    bottom: 0;
+}
+
+.left, .right {
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $btn-text;
+    font-family: 'Poppins-300-light';
+    font-size: 18px;
+}
+
+.left {
+    padding: 10px;
+    bottom: 10px;
+    width: 40vw;
+    gap: 10px;
+}
+
+.right {
+    bottom: 10px;
+    right: 10px;
+    width: 60vw;
+}
+
+.text {
+    color: $btn-text;
+    font-family: 'Poppins-700';
+    font-size: 24px;
+}
+
+.if {
+    font-size: 24px;
 }

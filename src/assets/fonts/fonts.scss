@@ -7,7 +7,7 @@
 @font-face {
     font-family: "Poppins-500";
     font-weight: 500;
-    src: url(../fonts/Poppins/Poppins-Regular.ttf)format('truetype');
+    src: url(../fonts/Poppins/Poppins-Medium.ttf)format('truetype');
 }
 
 @font-face {
@@ -17,9 +17,15 @@
 }
 
 @font-face {
-    font-family: "Poppins-700";
+    font-family: "Poppins-300-light";
     font-weight: 300;
-    src: url(../fonts/Poppins/Poppins-Regular.ttf)format('truetype');
+    src: url(../fonts/Poppins/Poppins-Light.ttf)format('truetype');
+}
+
+@font-face {
+    font-family: "Poppins-700";
+    font-weight: 700;
+    src: url(../fonts/Poppins/Poppins-Bold.ttf)format('truetype');
 }
 
 @font-face {
