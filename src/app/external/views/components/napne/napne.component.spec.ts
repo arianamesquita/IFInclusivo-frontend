@@ -1,15 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HomeComponent } from './home.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+import { NapneComponent } from './napne.component';
+
+describe('NapneComponent', () => {
+  let component: NapneComponent;
+  let fixture: ComponentFixture<NapneComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HomeComponent]
+      declarations: [NapneComponent]
     });
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(NapneComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

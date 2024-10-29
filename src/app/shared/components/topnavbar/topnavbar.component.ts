@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-topnavbar',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class TopnavbarComponent {
 
+  constructor(private readonly router: Router) { }
+
+
+  navigateTo(){
+    this.router.navigate(['/home']);
+  }
 }

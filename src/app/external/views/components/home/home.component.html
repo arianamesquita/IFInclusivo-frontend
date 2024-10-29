@@ -1,0 +1,29 @@
+<div class="box">
+    <div class="background"></div>
+    <div class="upper">
+        <div class="text">
+            O IF Inclusivo se destaca por converter palavras em sinais de Libras para surdos, oferecer tópicos 
+            com bibliografias sugeridas e um fórum acessível para pessoas com dificuldades cognitivas, facilitando 
+            a comunicação e interação entre os alunos dos cursos de Tecnologia da Informação do Instituto Federal Goiano.
+        </div>
+        <div class="img">
+            <img src="../../../../../../assets/images/tela_inicial.svg" alt="imagem ilustrativa ilustrando um chat via web" >
+        </div>
+    </div>
+    <div class="middle" *ngFor="let button of buttons">
+        <button [ngClass]="'icon_label ' + button.style" (click)="navigateTo(button.name)">
+            <img [src]="'../../../../../../assets/icons/' + button.icon + '.svg'" alt="navegação de acesso à página do napne" class="icon">
+            <span class="label">{{button.name}}</span>
+        </button>
+        <span class="info">{{button.info}}</span>
+    </div>
+    <div class="bottom">
+        <span class="title">
+            QUEM SOMOS?
+        </span>
+        <h3 class="weare">
+            Estudantes de Sistemas de Informação do IF Goiano Campus Urutaí, desenvolvendo um site em parceria com o NAPNE para 
+            tornar a comunicação e o acesso à informação mais inclusivo.
+        </h3>
+    </div>
+</div>

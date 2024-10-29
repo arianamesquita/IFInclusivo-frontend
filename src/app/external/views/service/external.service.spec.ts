@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TelaInicialService } from './tela-inicial.service';
+import { ExternalService } from './external.service';
 
-describe('TelaInicialService', () => {
-  let service: TelaInicialService;
+describe('ExternalService', () => {
+  let service: ExternalService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(TelaInicialService);
+    service = TestBed.inject(ExternalService);
   });
 
   it('should be created', () => {
