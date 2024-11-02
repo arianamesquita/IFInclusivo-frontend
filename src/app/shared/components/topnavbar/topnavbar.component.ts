@@ -22,4 +22,8 @@ export class TopnavbarComponent {
   emitOpenCadastro(){
     this.service.emitOpenModal();
   }
+
+  emitOpenLogin(){
+    this.service.emitOpenLogin();
+  }
 }

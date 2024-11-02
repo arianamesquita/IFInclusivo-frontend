@@ -3,7 +3,7 @@
         <img class="logo" src="../../../../../assets/images/logo_oficial_white.svg">
     </button>
     <div class="box_btns">
-        <button mat-raised-button class="buttons login"><span class="text_btn">LOGIN</span></button>
+        <button mat-raised-button class="buttons login"><span class="text_btn" (click)="emitOpenLogin()">LOGIN</span></button>
         <button mat-raised-button class="buttons cadastro"><span class="text_btn" (click)="emitOpenCadastro()">
             CADASTRE-SE</span></button>
     </div>

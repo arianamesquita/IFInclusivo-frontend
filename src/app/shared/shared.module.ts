@@ -11,7 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -28,7 +29,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     HttpClientModule,
     MatButtonModule,
     RouterModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatFormFieldModule
   ],
   exports: [
     MatInputModule,
@@ -42,7 +45,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     RouterModule, 
     FooterComponent,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatFormFieldModule
    ]
 })
 export class SharedModule { }

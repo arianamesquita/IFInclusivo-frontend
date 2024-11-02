@@ -35,6 +35,24 @@
 }
 
 @font-face {
+    font-family: "Poppins-400-regular";
+    font-weight: 400;
+    src: url(../fonts/Poppins/Poppins-Regular.ttf)format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-700";
+    font-weight: 700;
+    src: url(../fonts/Inter/Inter_18pt-Regular.ttf)format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-700-bold";
+    font-weight: 700;
+    src: url(../fonts/Inter/Inter_18pt-Bold.ttf)format('truetype');
+}
+
+@font-face {
     font-family: "Poppins-500-bold";
     font-weight: 500;
     src: url(../fonts/Poppins/Poppins-Bold.ttf)format('truetype');

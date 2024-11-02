@@ -8,10 +8,17 @@ import { NapneComponent } from './views/components/napne/napne.component';
 import { TopicosComponent } from './views/components/topicos/topicos.component';
 import { ConvertelibrasComponent } from './views/components/convertelibras/convertelibras.component';
 import { ModalCadastroComponent } from './views/components/modais/modal-cadastro/modal-cadastro.component';
+import { ModalLoginComponent } from './views/components/modais/modal-login/modal-login.component';
 
 @NgModule({
   declarations: [ 
-    HomeComponent, ForumComponent, NapneComponent, TopicosComponent, ConvertelibrasComponent, ModalCadastroComponent
+    HomeComponent, 
+    ForumComponent, 
+    NapneComponent, 
+    TopicosComponent, 
+    ConvertelibrasComponent, 
+    ModalCadastroComponent, 
+    ModalLoginComponent
   ],
   imports: [
     CommonModule,

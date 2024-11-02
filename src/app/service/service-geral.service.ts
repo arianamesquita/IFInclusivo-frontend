@@ -11,7 +11,14 @@ export class ServiceGeralService {
   private openModalCadastro = new Subject<void>();
   $openModalCadastro = this.openModalCadastro.asObservable();
 
+  private openModalLogin = new Subject<void>();
+  $openModalLogin = this.openModalLogin.asObservable();
+
   emitOpenModal(){
     this.openModalCadastro.next();
+  }
+
+  emitOpenLogin(){
+    this.openModalLogin.next();
   }
 }
