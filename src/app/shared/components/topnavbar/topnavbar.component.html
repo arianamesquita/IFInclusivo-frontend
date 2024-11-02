@@ -4,7 +4,8 @@
     </button>
     <div class="box_btns">
         <button mat-raised-button class="buttons login"><span class="text_btn">LOGIN</span></button>
-        <button mat-raised-button class="buttons cadastro"><span class="text_btn">CADASTRE-SE</span></button>
+        <button mat-raised-button class="buttons cadastro"><span class="text_btn" (click)="emitOpenCadastro()">
+            CADASTRE-SE</span></button>
     </div>
     <div class="container">
         <img class="bubble_purple" alt="bolha de decoração roxa" src="../../../../../assets/images/bubble_purple.svg">

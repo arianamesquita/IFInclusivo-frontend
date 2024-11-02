@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServiceGeralService } from 'src/app/service/service-geral.service';
 
 @Component({
   selector: 'app-topnavbar',
@@ -8,10 +9,17 @@ import { Router } from '@angular/router';
 })
 export class TopnavbarComponent {
 
-  constructor(private readonly router: Router) { }
+  constructor(
+    private readonly router: Router,
+    private readonly service: ServiceGeralService
+  ) { }
 
 
   navigateTo(){
     this.router.navigate(['/home']);
+  }
+
+  emitOpenCadastro(){
+    this.service.emitOpenModal();
   }
 }

@@ -10,6 +10,7 @@ import { TopnavbarComponent } from './components/topnavbar/topnavbar.component';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -26,7 +27,8 @@ import { FooterComponent } from './components/footer/footer.component';
     MatExpansionModule,
     HttpClientModule,
     MatButtonModule,
-    RouterModule
+    RouterModule,
+    MatDialogModule
   ],
   exports: [
     MatInputModule,
@@ -39,7 +41,8 @@ import { FooterComponent } from './components/footer/footer.component';
     TopnavbarComponent,
     MatButtonModule,
     RouterModule, 
-    FooterComponent
+    FooterComponent,
+    MatDialogModule
    ]
 })
 export class SharedModule { }
