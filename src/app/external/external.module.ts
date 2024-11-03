@@ -7,6 +7,7 @@ import { ForumComponent } from './views/components/forum/forum.component';
 import { NapneComponent } from './views/components/napne/napne.component';
 import { TopicosComponent } from './views/components/topicos/topicos.component';
 import { ConvertelibrasComponent } from './views/components/convertelibras/convertelibras.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ 
@@ -15,7 +16,8 @@ import { ConvertelibrasComponent } from './views/components/convertelibras/conve
   imports: [
     CommonModule,
     ExternalRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ]
 })
 export class ExternalModule { }

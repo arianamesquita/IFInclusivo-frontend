@@ -1,14 +1,38 @@
 <p>convertelibras works!</p>
 
-<div class="input-group">
-    <label for="nome"> Nome do produto</label>
-    <input type="text"  name="nome" id="nome" placeholder=" Digite o nome" required>
-</div>
-<div class="input-group">
-    <label for="tipo">tipo</label>
-    <input type="text"  name="tipo" id="tipo" placeholder="teste" required>
-</div>
-<div class="input-group">
-    <label for="tamanho">tamanho</label>
-    <input type="text" name="tamanho" id="tamanho" placeholder="teste" required>
-</div>
+<tbody>
+    <tr *ngFor="let sinais of sinais$ | async">
+        <td>{{sinais.id}}</td>
+        <td>{{sinais.palavra}}</td>
+        <td>{{sinais.url}}</td>
+        <td>{{sinais.video}}</td>
+        <td>{{sinais.status}}</td>
+        <td>{{sinais.descricao}}</td>
+    </tr>
+</tbody>
+<form>
+
+    <div class="input-group">
+        <label for="palavra">Id</label>
+        <input type="text" disabled [(ngModel)]="id" name="id" placeholder=" Digite uma id" required>
+    </div>
+    
+    <div class="input-group">
+        <label for="url">Digite uma url</label>
+        <input type="text" [(ngModel)]="url" name="url" placeholder="Digite uma url" required>
+    </div>
+    <div class="input-group">
+        <label for="video">Digite uma video</label>
+        <input type="text" [(ngModel)]="video" name="video" placeholder="Digite uma video" required>
+    </div>
+    <div class="input-group">
+        <label for="status">Digite uma status</label>
+        <input type="text" [(ngModel)]="status" name="status" placeholder="Digite uma status" required>
+    </div>
+    <div class="input-group">
+        <label for="descricao">Digite uma descricao</label>
+        <input type="text" [(ngModel)]="descricao" name="descricao" placeholder="Digite uma descricao" required>
+    </div>
+    <button (click)="cadastrarLibras()">cadastrar Libras</button>
+</form>
+
