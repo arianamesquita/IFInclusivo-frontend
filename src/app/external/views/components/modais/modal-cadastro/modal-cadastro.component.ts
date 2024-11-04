@@ -27,7 +27,6 @@ export class ModalCadastroComponent {
   } 
 
   cadastrar(){
-    console.log(this.form.value)
     //chamar auth service e cadastrar
   }
 

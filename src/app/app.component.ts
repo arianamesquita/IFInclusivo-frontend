@@ -10,6 +10,5 @@ export class AppComponent {
   title = 'IFInclusivo-FrontEnd';
 
   constructor(){
-    console.log(environment.api)
   }
 }

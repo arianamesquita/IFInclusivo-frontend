@@ -1,5 +1,4 @@
 export interface sinaisLibras {
-
     id?: number,
     palavra: string,
     descricao: string,
@@ -8,5 +7,4 @@ export interface sinaisLibras {
     foto: string,
     justificativa: string,
     status: string
-
 }

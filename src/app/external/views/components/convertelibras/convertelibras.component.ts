@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ConvertelibrasService } from '../../service/convertelibras.service';
-import { sinaisLibras } from '../../models/convertelibras.model';
-import { Observable } from 'rxjs';
+import { sinaisLibras } from '../../../../shared/models/convertelibras.model';
+import { Observable, Subject, takeUntil } from 'rxjs';
+import { ExternalService } from '../../service/external.service';
 
 @Component({
   selector: 'app-convertelibras',
@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./convertelibras.component.scss']
 })
 export class ConvertelibrasComponent {
-
-  //sinais: sinaisLibras[] = []
+  private readonly unsubscribeAll: Subject<any[]> = new Subject();
+  sinais: sinaisLibras[] = []
   sinais$ = new Observable<sinaisLibras[]>();
 
   //teste de put
@@ -24,7 +24,7 @@ export class ConvertelibrasComponent {
     justificativa = '';
     status = '';
 
-  constructor(private ConvertelibrasService: ConvertelibrasService){
+  constructor(private externalService: ExternalService){
     //metodo que chama todos obj do db teste
     this.obterSinaisCadastrados();
   }
@@ -32,15 +32,26 @@ export class ConvertelibrasComponent {
   obterSinaisCadastrados(){
     //this.ConvertelibrasService.buscarLibrasDePalavra()
     //.subscribe(sinais => this.sinais = sinais)
-
-    this.sinais$ = this.ConvertelibrasService.buscarLibrasDePalavra();
+    //this.sinais$ = this.externalService.buscarLibrasDePalavra();
+    this.externalService.buscarLibrasDePalavra().pipe(takeUntil(this.unsubscribeAll)).subscribe(
+      (res: any) => {
+        this.sinais = res;
+      }
+    )
   }
     //metodo para teste de set
-  cadastrarLibras(){
-    
-    this.ConvertelibrasService.cadastrarLibras({palavra: this.palavra, descricao: this.descricao, url: this.url,
+  cadastrarLibras(){ //levar para o internal depois, o cadastrar vai ser feito só na parte interna após login
+    this.externalService.cadastrarLibras({palavra: this.palavra, descricao: this.descricao, url: this.url,
       video: this.video, foto: this.foto, justificativa: this.justificativa, status: this.status})
+      .pipe(takeUntil(this.unsubscribeAll))
       .subscribe(_ => this.obterSinaisCadastrados())
   }
+
+
+  ngOnDestroy(): void {
+    this.unsubscribeAll.next([]);
+    this.unsubscribeAll.complete();
+}
+
 
 }

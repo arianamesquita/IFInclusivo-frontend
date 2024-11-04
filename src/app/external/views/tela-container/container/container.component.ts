@@ -22,7 +22,6 @@ export class ContainerComponent implements OnInit{
     })
     
     this.service.$openModalLogin.subscribe(() => {
-      console.log("teste")
       this.openModalLogin();
     })
   }
