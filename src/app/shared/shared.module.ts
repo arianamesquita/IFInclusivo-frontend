@@ -10,7 +10,9 @@ import { TopnavbarComponent } from './components/topnavbar/topnavbar.component';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -26,7 +28,10 @@ import { FooterComponent } from './components/footer/footer.component';
     MatExpansionModule,
     HttpClientModule,
     MatButtonModule,
-    RouterModule
+    RouterModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatFormFieldModule
   ],
   exports: [
     MatInputModule,
@@ -39,7 +44,10 @@ import { FooterComponent } from './components/footer/footer.component';
     TopnavbarComponent,
     MatButtonModule,
     RouterModule, 
-    FooterComponent
+    FooterComponent,
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatFormFieldModule
    ]
 })
 export class SharedModule { }

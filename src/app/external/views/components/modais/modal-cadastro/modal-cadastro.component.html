@@ -1,0 +1,41 @@
+<div class="modal-container">
+    <div class="background">
+        <img src="../../../../../../assets/images/notebook_cadastro.svg" 
+            alt="imagem ilustrativa de tela de computador" 
+            class="img-cadastro"
+        >
+        <div class="cadastro">
+            <div class="form"> 
+                <span class="text"> Cadastre-se </span>
+                <form [formGroup]="form" class="form-in">
+                    <div class="row">
+                        <span class="line">Nome: </span>
+                        <input formControlName="nome" class="custom-input" placeholder="Digite seu nome">
+                    </div>
+                    <div class="row">
+                        <span class="line">Login: </span>   
+                        <input formControlName="login" class="custom-input" placeholder="Digite seu login">
+                    </div>
+                    <div class="row">
+                        <span class="line">Matrícula: </span>   
+                        <input formControlName="matricula" type="number" class="custom-input" placeholder="Digite sua matrícula">
+                    </div>
+                    <div class="row">
+                        <span class="line">Senha: </span>   
+                        <input formControlName="senha" type="password" class="custom-input" placeholder="Digite sua senha">
+                    </div>
+                </form>
+                <p class="row btn-bottom">
+                    <button mat-raised-button class="btn" (click)="cadastrar()">Cadastrar</button>
+                </p>
+                <p class="row btn-bottom">
+                    Já possui conta? <button mat-button class="btn-white" (click)="direcionarLogin()">Entre</button>
+                </p>
+            </div>
+            <div class="button">
+                <button mat-raised-button class="btn" (click)="voltarHome()">Voltar</button>
+            </div>
+        </div>
+    </div>
+
+</div>

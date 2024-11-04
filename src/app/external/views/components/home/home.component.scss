@@ -4,32 +4,36 @@
 .box {
     background-color: $background;
     width: 100vw;
-    height: auto;
+    min-height: 100vh; // Usa min-height para que a altura acompanhe o conteúdo
     position: relative;
+    overflow: hidden;
 
     .background {
         background-image: 
             url("../../../../../assets/images/bubble_home_purple.svg"),
             url("../../../../../assets/images/bubble_home_cyan.svg");
-        background-position: left bottom, left bottom; 
+        background-position: left top 300px, left 0px top 200px; // Ajuste personalizado para cada bolha
         background-size: 150px, 130px;
         background-repeat: no-repeat;
         position: absolute;
-        top: -150vh;
+        top: 0;
         left: 0;
-        width: 100vw;
+        width: 100%;
         height: 100%;
+        z-index: 0;
     }
     .upper{
         width: 80vw;
-        height: 80vh;
-        margin: 0 20vw 0 15vw;
+        min-height: 80vh;
+        margin: 0 auto;
         padding-bottom: 12vh;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
         gap: 4vw;
+        position: relative;
+        z-index: 1; // Mantém o conteúdo acima do background
         .text {
             width: 35vw;
             height: auto;
@@ -82,15 +86,19 @@
             }
         }
         .line1{
+            z-index: 3;
             margin-left: 0;
         }
         .line2{
+            z-index: 3;
             margin-left: 10vw;
         }
         .line3{
+            z-index: 3;
             margin-left: 20vw;
         }
         .line4{
+            z-index: 3;
             margin-left: 30vw;
         }
         .info{
@@ -135,4 +143,57 @@
             line-height: 4vh;
         }
     }
+
+    @media only screen and (max-width: 1300px) {
+        .background{
+            background-image: none;
+        }
+        .upper {
+            flex-direction: column;
+            margin-top: 15vh;
+            .text{
+                font-size: 2vh;
+            }
+        }
+        .middle{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .icon_label{
+                .icon{
+                    width: 10vh;
+                }
+                .label{
+                    font-size: 2vh;
+                    margin-top: 1vh;
+                }
+            }
+            .line1, .line2, .line3, .line4 {
+                margin-left: 0;
+            }
+            .info{
+                width: auto;
+                height: auto;
+                padding: 2vw 3vh;
+                font-size: 2vh;
+                margin-left: 0vw;
+                
+            }
+        }
+        .bottom{
+            margin-top: 7vh;
+            height: auto;
+            .title{
+                font-size: 3vh;
+            }
+            .weare{
+                height: auto;
+                margin-top: -3vh;
+                font-size: 2vh;
+            }
+        }
+    }
+
+
 }
