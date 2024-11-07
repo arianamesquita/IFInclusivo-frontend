@@ -2,6 +2,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { ServiceGeralService } from 'src/app/service/service-geral.service';
 
 @Component({
   selector: 'app-modal-cadastro',
@@ -12,11 +14,12 @@ import { Router } from '@angular/router';
 export class ModalCadastroComponent {
 
   form: FormGroup;
+  private closeModalSubscription: Subscription;
 
   constructor(
     public dialogRef: MatDialogRef<ModalCadastroComponent>,
     private readonly formBuilder: FormBuilder,
-    private readonly router: Router
+    private readonly service: ServiceGeralService
   ) {
     this.form = this.formBuilder.group({
       nome: [null, ],
@@ -24,6 +27,10 @@ export class ModalCadastroComponent {
       matricula: [null, ],
       senha: [null, Validators.required]
     })
+
+    this.closeModalSubscription = this.service.$closeModalCadastro.subscribe(() => {
+      this.dialogRef.close();
+    });
   } 
 
   cadastrar(){
@@ -33,10 +40,19 @@ export class ModalCadastroComponent {
   direcionarLogin(){
     // chamar auth service e logar
     // chamar modal de login
+    this.service.emitOpenLogin();
+    this.service.emitCloseCadastro();
   }
 
   voltarHome(){
     this.dialogRef.close();
+  }
+
+  ngOnDestroy() {
+    // Certifique-se de cancelar a inscrição ao destruir o componente
+    if (this.closeModalSubscription) {
+      this.closeModalSubscription.unsubscribe();
+    }
   }
 
 }

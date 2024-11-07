@@ -2,7 +2,7 @@
 @import '/src/assets/fonts/fonts.scss';
 .box {
     width: 100vw;
-    height: 150px;
+    height: 20%;
     background-color: $green;
     display: flex;
     flex-direction: row;
@@ -50,14 +50,15 @@
     gap: 20px;
     .buttons{
         background-color: $btn-purple;
-        height: 50px;
         border-radius: 12px;
     }
     .login{
-        width: 140px;
+        width: auto;
+        padding: 2vh 2vw;
     }
     .cadastro {
-        width: 190px;
+        width: auto;
+        padding: 2vh 2vw;
     }
     .text_btn{
         color: $btn-text;
@@ -65,5 +66,71 @@
         font-size: 18px;
         display: flex;
         align-items: center;
+    }
+}
+
+.box_icons{
+    display: none;
+}
+
+@media only screen and (min-width: 672px) and (max-width: 1300px) {
+    .box{
+        height: 15%;
+    }
+    .bubble_purple, .bubble_cyan {
+        display: none;
+    }
+    .box_btns{
+        .text_btn{
+            font-size: 14px;
+        }
+    }
+    .box_icons{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 672px) {
+    .box{
+        height: 15%;
+        justify-content: space-between;
+        .box_logo{
+            width: 50vw;
+            margin-left: 20vw;
+            .logo{
+                width: 200%;
+            }
+        }
+    }
+    .bubble_purple, .bubble_cyan {
+        display: none;
+    }
+    .box_btns{
+        display: none;
+    }
+    .box_icons{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        .buttons {
+            width: 32px;
+            height: 32px;
+            border-radius: 50px;
+            background: $btn-purple;
+            border: none;
+            outline: none;
+            box-shadow: none;
+            .icon{
+                width: 32px;
+                height: 100%;
+                font-size: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-left: 8px;
+                color: $black;
+            }
+        }
     }
 }
