@@ -11,23 +11,39 @@ export class TopnavbarComponent implements OnInit {
 
   routerLink: string = '';
 
+  buttons = [ 
+    { nome: 'Fórum' },
+    { nome: 'Libras' },
+    { nome: 'Tópicos' }
+  ];
+
   constructor(
     private readonly router: Router,
     private readonly service: ServiceGeralService
   ) {  }
 
   ngOnInit(): void {
+    this.routerLink = this.router.url;
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.routerLink = event.url; // Atualiza a rota atual
+        this.routerLink = event.url;
       }
     });
   }
 
-  navigateTo(){
-    this.router.navigate(['/home']);
+  navigateTo(nome: string) {
+    if (nome === 'Libras') {
+      nome = 'convertelibras';
+    }
+    const rota = this.removeAcentos(nome).toLowerCase();
+    this.router.navigate([`/${rota}`])
+      .catch(err => console.error('Rota inválida:', err));
   }
 
+  removeAcentos(str: string) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "");
+  }
+  
   emitOpenCadastro(){
     this.service.emitOpenModal();
   }

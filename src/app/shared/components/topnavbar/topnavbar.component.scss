@@ -134,3 +134,72 @@
         }
     }
 }
+
+.box-out {
+    width: 100vw;
+    height: 10%;
+    background-color: $green;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .btns-ext{
+        width: 15vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .box_logo_mini {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            background: none;
+            border: none;
+            outline: none;
+            box-shadow: none;
+            cursor: pointer;
+            .logo-mini {
+                width: 14vw;
+            }
+        }
+        .buttons{
+            background-color: $btn-purple;
+            border-radius: 12px;
+        }
+        .login{
+            width: auto;
+            padding: 1.5vh 2vw;
+        }
+        .text_btn{
+            color: $btn-text;
+            font-family: 'Poppins-600';
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .btns-mid {
+        width: 70vw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        .buttons{
+            background-color: $btn-green-2;
+            border-radius: 12px;
+        }
+        .login{
+            width: auto;
+            padding: 1.5vh 2vw;
+        }
+        .text_btn{
+            color: $black;
+            font-family: 'Poppins-600-medium';
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+    }
+}

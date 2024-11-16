@@ -1,6 +1,6 @@
 <ng-container *ngIf="routerLink === '/home' || routerLink === '/napne'; else topMinor">
     <div class="box">
-        <button class="box_logo" (click)="navigateTo()">
+        <button class="box_logo" (click)="navigateTo('home')">
             <img class="logo" src="../../../../../assets/images/logo_oficial_white.svg">
         </button>
         <div class="box_btns">
@@ -20,10 +20,23 @@
     </div>
 </ng-container>
 <ng-template #topMinor>
-    <div class="box">
-        <button class="box_logo" (click)="navigateTo()">
-            <img class="logo" src="../../../../../assets/images/logo_oficial_white.svg">
-        </button>
-
+    <div class="box-out">
+        <div class="btns-ext">
+            <button class="box_logo_mini" (click)="navigateTo('home')">
+                <img class="logo-mini" src="../../../../../assets/images/logo_oficial_white.svg">
+            </button>
+        </div>
+        <div class="btns-mid">
+            <div *ngFor="let button of buttons">
+                <button mat-raised-button class="buttons login" (click)="navigateTo(button.nome)">
+                    <span class="text_btn">{{button.nome}}</span>
+                </button>
+            </div>
+        </div>
+        <div class="btns-ext">
+            <button mat-raised-button class="buttons login" (click)="emitOpenLogin()">
+                <span class="text_btn">LOGIN</span>
+            </button>
+        </div>
     </div>
 </ng-template>
