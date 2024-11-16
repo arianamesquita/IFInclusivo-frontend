@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { ServiceGeralService } from 'src/app/service/service-geral.service';
 
 @Component({
@@ -7,13 +7,22 @@ import { ServiceGeralService } from 'src/app/service/service-geral.service';
   templateUrl: './topnavbar.component.html',
   styleUrls: ['./topnavbar.component.scss']
 })
-export class TopnavbarComponent {
+export class TopnavbarComponent implements OnInit {
+
+  routerLink: string = '';
 
   constructor(
     private readonly router: Router,
     private readonly service: ServiceGeralService
-  ) { }
+  ) {  }
 
+  ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.routerLink = event.url; // Atualiza a rota atual
+      }
+    });
+  }
 
   navigateTo(){
     this.router.navigate(['/home']);

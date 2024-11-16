@@ -1,19 +1,29 @@
-<div class="box">
-    <button class="box_logo" (click)="navigateTo()">
-        <img class="logo" src="../../../../../assets/images/logo_oficial_white.svg">
-    </button>
-    <div class="box_btns">
-        <button mat-raised-button class="buttons login" (click)="emitOpenLogin()"><span class="text_btn">LOGIN</span></button>
-        <button mat-raised-button class="buttons cadastro" (click)="emitOpenCadastro()"><span class="text_btn">
-            CADASTRE-SE</span></button>
-    </div>
-    <div class="box_icons">
-        <button mat-raised-button class="buttons cadastro" (click)="emitOpenCadastro()">
-            <mat-icon class="icon">person_add</mat-icon>
+<ng-container *ngIf="routerLink === '/home' || routerLink === '/napne'; else topMinor">
+    <div class="box">
+        <button class="box_logo" (click)="navigateTo()">
+            <img class="logo" src="../../../../../assets/images/logo_oficial_white.svg">
         </button>
+        <div class="box_btns">
+            <button mat-raised-button class="buttons login" (click)="emitOpenLogin()"><span class="text_btn">LOGIN</span></button>
+            <button mat-raised-button class="buttons cadastro" (click)="emitOpenCadastro()"><span class="text_btn">
+                CADASTRE-SE</span></button>
+        </div>
+        <div class="box_icons">
+            <button mat-raised-button class="buttons cadastro" (click)="emitOpenCadastro()">
+                <mat-icon class="icon">person_add</mat-icon>
+            </button>
+        </div>
+        <div class="container">
+            <img class="bubble_purple" alt="bolha de decoração roxa" src="../../../../../assets/images/bubble_purple.svg">
+            <img class="bubble_cyan" alt="bolha de decoração verde" src="../../../../../assets/images/bubble_cyan.svg">
+        </div>
     </div>
-    <div class="container">
-        <img class="bubble_purple" alt="bolha de decoração roxa" src="../../../../../assets/images/bubble_purple.svg">
-        <img class="bubble_cyan" alt="bolha de decoração verde" src="../../../../../assets/images/bubble_cyan.svg">
+</ng-container>
+<ng-template #topMinor>
+    <div class="box">
+        <button class="box_logo" (click)="navigateTo()">
+            <img class="logo" src="../../../../../assets/images/logo_oficial_white.svg">
+        </button>
+
     </div>
-</div>
+</ng-template>
