@@ -61,3 +61,32 @@
 .if {
     font-size: 24px;
 }
+
+@media only screen and (max-width: 672px) {
+    .box{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .left{
+            color: $btn-text;
+            font-family: 'Poppins-300-light';
+            font-size: 14px;
+            margin-top: 20vh;
+            text-align: center;
+            .text{
+                color: $btn-text;
+                font-family: 'Poppins-700';
+                font-size: 14px;
+                text-align: center;
+            }
+        }
+        .if{
+            margin-top: -10vh;
+            color: $btn-text;
+            font-family: 'Poppins-700';
+            font-size: 14px;
+            text-align: center;
+        }
+    }
+}

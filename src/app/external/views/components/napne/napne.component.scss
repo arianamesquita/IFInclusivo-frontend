@@ -1,119 +1,117 @@
 @import '/src/assets/colors/colors.scss';
 @import '/src/assets/fonts/fonts.scss';
-*
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-.background {
-  background-image:
-      url("../../../../../assets/images/bubble_home_purple.svg"),
-      url("../../../../../assets/images/bubble_home_cyan.svg");
-  background-position: left top 300px, left 0px top 200px; // Ajuste personalizado para cada bolha
-  background-size: 150px, 130px;
-  background-repeat: no-repeat;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
+.box {
+  background-color: $background;
+  width: 100vw;
+  min-height: 100vh; // Usa min-height para que a altura acompanhe o conteúdo
+  position: relative;
+  overflow: hidden;
 
-.container {
+  .background {
+      background-image: 
+          url("../../../../../assets/images/bubble_home_purple.svg"),
+          url("../../../../../assets/images/bubble_home_cyan.svg");
+      background-position: left top 300px, left 0px top 200px; // Ajuste personalizado para cada bolha
+      background-size: 130px, 110px;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+  }
+
+  .container {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    width: 80vw;
+    min-height: 80vh;
+    margin: 0 auto;
     padding: 20px;
     gap: 20px;
+
+    .title-img {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin: 10vh 0;
+    }
+  }
 }
 
+
 .text-section {
-    max-width: 300px;
+  max-width: 300px;
 }
 
 /* titulo negrito */
 .text-section h1 {
   font-family: "Poppins-600-semibold";
   font-weight: 600;
-    font-size: 1.5em;
-    color: #333;
-    margin-bottom: 20px;
-}
-/* caixinha */
-.info-box {
-    background-color: #d1c4e9;
-    padding: 25px;
-    border-radius: 25px;
-    width: 90%;
-    max-width: 600px;
-    height: auto;
-    margin: 20px auto;
-}
-/* titulo napne brancco */
-.info-box h2 {
-    font-size: 1.2em;
-    color: #FFFFFF;
-    margin-bottom: 20px;
-}
-/* texto da caixinha */
-.info-box p {
-    font-size: 0.95em;
-    color: #333;
+  font-size: 2em;
+  color: $black;
+  text-align: start;
 }
 
 .image-section img {
-  width: 20vw;
-  height: auto;
+  width: 40vw;
+  height: 60vh;
   align-items: center;
   justify-content: center;
-  padding-bottom: 10vh;
 }
 
 .img img {
   width: 100%;
   height: 100%;
 }
-/* outra parte */
-
 
 
 /* título principal */
 .texto {
   text-align: center;
   padding: 20px;
+  width: 100%;
 }
 
 .texto h1 {
   font-family: "Poppins-600-semibold";
   font-weight: 600;
   font-size: 24px;
-  color: #4a4a4a;
+  color: $black;
   margin: 0;
 }
 
 /* Contêiner de cada info-box */
 .info-box {
-  background-color: #BF87F8;
-  color: #333;
+  background-color: $btn-purple;
+  color: $black;
   border-radius: 10px;
   padding: 20px;
   margin: 20px auto; /* Centraliza o elemento */
-  width: 90%; /* Responsivo para telas menores */
-  max-width: 600px; /* Limita a largura máxima */
+  width: 100%; /* Responsivo para telas menores */
+  max-width: 58vw; /* Limita a largura máxima */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra */
-}
-
-/* Estilo dos títulos  */
-.info-box h2 {
-  font-family: "Poppins-600-semibold";
-  font-weight: 600;
-  font-size: 20px;
-  color: #000000;
-  padding: 10px;
-  border-radius: 8px;
-  margin: -20px -20px 20px -20px; /* Alinha com a borda da caixa */
-  text-align: center;
+  /* Estilo dos títulos  */
+  h2 {
+    font-family: "Poppins-600-semibold";
+    font-weight: 600;
+    font-size: 20px;
+    color: $black;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .white{
+    font-family: "Poppins-600";
+    font-weight: 600;
+    font-size: 30px;
+    color: white;
+    border-radius: 8px;
+    text-align: start;
+    text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+  }
 }
 
 /* Estilo do texto dentro  */
@@ -122,7 +120,5 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 1.5;
-  margin: 0;
-  text-align: justify; /* Ajusta o texto para ficar alinhado */
+  text-align: start;
 }
-

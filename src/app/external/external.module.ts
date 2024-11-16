@@ -7,6 +7,7 @@ import { ForumComponent } from './views/components/forum/forum.component';
 import { NapneComponent } from './views/components/napne/napne.component';
 import { TopicosComponent } from './views/components/topicos/topicos.component';
 import { ConvertelibrasComponent } from './views/components/convertelibras/convertelibras.component';
+import { FormsModule } from '@angular/forms';
 import { ModalCadastroComponent } from './views/components/modais/modal-cadastro/modal-cadastro.component';
 import { ModalLoginComponent } from './views/components/modais/modal-login/modal-login.component';
 
@@ -23,7 +24,8 @@ import { ModalLoginComponent } from './views/components/modais/modal-login/modal
   imports: [
     CommonModule,
     ExternalRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ]
 })
 export class ExternalModule { }

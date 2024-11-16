@@ -122,6 +122,39 @@
                 margin-top: 25px;
             }
         }
+        .box_icons{
+            display: none;
+        }
     }
 
+}
+
+@media only screen and (max-width: 672px) {
+    .modal-container{
+        .background{
+            width: 100%;
+            background-image: none;
+            .img-cadastro{
+                width: 0;
+                display: none;
+            }
+        }
+        .cadastro{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .form{
+                width: 100%;
+                margin: auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .row{
+                    width: 100%;
+                }
+            }
+        }
+    }
 }

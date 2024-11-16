@@ -1,1 +1,43 @@
-<p>modal-login works!</p>
+<div class="modal-container">
+    <div class="background">
+        <!-- Logo -->
+        <img src="../../../../../../assets/images/logo_oficial_white.svg" alt="Logo" class="logo">
+      <!-- Imagens no canto inferior esquerdo verde e roxo-->
+      <img src="../../../../../../assets/images/bubble_login_cian.svg" alt="Bubble Cian" class="bubble-cian">
+      <img src="../../../../../../assets/images/bubble_login_purple.svg" alt="Bubble Purple" class="bubble-purple">
+
+
+      <div class="button">
+                <button mat-raised-button class="btn" (click)="voltarHome()">Voltar</button>
+            </div>
+        <div class="login">
+
+            <div class="form">
+                <span class="text"> Bem-Vindo de volta </span>
+                <form [formGroup]="form" class="form-in">
+                    <div class="row">
+                        <span class="line">Login: </span>
+                        <input formControlName="login" class="custom-input" placeholder="Digite seu login">
+                    </div>
+                    <div class="row">
+                        <span class="line">Senha: </span>
+                        <input formControlName="senha" type="password" class="custom-input" placeholder="Digite sua senha">
+                    </div>
+                </form>
+                <p class="row btn-bottom">
+                    <button mat-raised-button class="btn" (click)="Entrar()">Entrar</button>
+                </p>
+                <p class="row btn-bottom">
+                  <button mat-button class="btn-white" (click)="EsqueciSenha()"><u>Esqueci minha senha</u></button>
+                </p>
+                <p class="row btn-bottom">
+                    Não Possui conta? <button mat-button class="btn-white" (click)="direcionarCadastro()">Cadastre-se</button>
+                </p>
+            </div>
+        </div>
+        <img src="../../../../../../assets/images/notebook_login.svg"
+            alt="imagem ilustrativa de tela de computador"
+            class="img-login"
+        >
+    </div>
+</div>
