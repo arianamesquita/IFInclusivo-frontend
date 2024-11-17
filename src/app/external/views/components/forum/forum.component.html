@@ -22,45 +22,38 @@
                         placeholder="Buscar por termo">
                 </div>
             </form>
-            <mat-card class="box-questions">
+            <mat-card class="box-questions" *ngFor="let pergunta of perguntas">
                 <mat-card-header>
                     <div mat-card-avatar class="avatar">
                         <img src="assets/icons/icon-person.svg" alt="Person Icon" class="custom-icon">
                     </div>
-                    <mat-card-title>Usuário X</mat-card-title>
-                    <mat-card-subtitle>Período XX</mat-card-subtitle>
-                    <mat-card-actions class="date">Data: 11/12/2020</mat-card-actions>
+                    <mat-card-title>{{ pergunta.usuario }}</mat-card-title>
+                    <mat-card-subtitle>{{ pergunta.periodo }}</mat-card-subtitle>
+                    <mat-card-actions class="date">Data: {{ pergunta.data }}</mat-card-actions>
                 </mat-card-header>
                 <mat-card-content>
-                    <h2>Question? Question? Question?</h2>
-                    <p>
-                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                        bred for hunting.
-                    </p>
+                    <h2>{{ pergunta.pergunta }}</h2>
+                    <p>{{ pergunta.descricao }}</p>
                 </mat-card-content>
                 <mat-card-actions align="end">
                     <button mat-button (click)="toggleRespostas()">Ver respostas</button>
 
                     <div *ngIf="mostrarRespostas" class="answers" align="end">
-                        <mat-card class="answer-box box-questions" >
-                            <mat-card-header>
-                                <div mat-card-avatar class="avatar">
-                                    <img src="assets/icons/icon-person.svg" alt="Person Icon" class="custom-icon">
-                                </div>
-                                <mat-card-title>Usuário X</mat-card-title>
-                                <mat-card-subtitle>Período XX</mat-card-subtitle>
-                                <mat-card-actions class="date">Data: 11/12/2020</mat-card-actions>
-                            </mat-card-header>
-                            <mat-card-content>
-                                <h2>Question? Question? Question?</h2>
-                                <p>
-                                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                                    bred for hunting.
-                                </p>
-                            </mat-card-content>
-                        </mat-card>
+                        <div *ngFor="let data of pergunta.respostas" class="answer-container">
+                            <mat-card class="answer-box box-questions">
+                                <mat-card-header>
+                                    <div mat-card-avatar class="avatar">
+                                        <img src="assets/icons/icon-person.svg" alt="Person Icon" class="custom-icon">
+                                    </div>
+                                    <mat-card-title>{{ data.usuario }}</mat-card-title>
+                                    <mat-card-subtitle>{{ data.periodo }}</mat-card-subtitle>
+                                    <mat-card-actions class="date">Data: {{ data.data }}</mat-card-actions>
+                                </mat-card-header>
+                                <mat-card-content>
+                                    <p>{{ data.resposta }}</p>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
                     </div>
                 </mat-card-actions>
 
