@@ -24,4 +24,8 @@ export class ExternalService {
       return res;
     })
   }
+
+  getAllForum(){
+    
+  }
 }

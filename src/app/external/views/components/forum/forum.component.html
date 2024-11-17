@@ -1,1 +1,70 @@
-<p>forum works!</p>
+
+<div class="box">
+    <div class="container">
+        <div class="left">
+            <span>Fórum</span>
+            <mat-card class="box-btn">
+                <mat-card-actions class="btn-container">
+                    <div *ngFor="let button of categorias" class="div">
+                        <button class="btns">{{button.nome}}</button>
+                        <div class="line"></div>
+                    </div>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+        <div class="right">
+            <form [formGroup]="form">
+                <div class="input-wrapper">
+                    <mat-icon class="icon">search</mat-icon>
+                    <input class="custom-input" 
+                        formControlName="pesquisa" 
+                        matInput type="text"
+                        placeholder="Buscar por termo">
+                </div>
+            </form>
+            <mat-card class="box-questions">
+                <mat-card-header>
+                    <div mat-card-avatar class="avatar">
+                        <img src="assets/icons/icon-person.svg" alt="Person Icon" class="custom-icon">
+                    </div>
+                    <mat-card-title>Usuário X</mat-card-title>
+                    <mat-card-subtitle>Período XX</mat-card-subtitle>
+                    <mat-card-actions class="date">Data: 11/12/2020</mat-card-actions>
+                </mat-card-header>
+                <mat-card-content>
+                    <h2>Question? Question? Question?</h2>
+                    <p>
+                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                        bred for hunting.
+                    </p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <button mat-button (click)="toggleRespostas()">Ver respostas</button>
+
+                    <div *ngIf="mostrarRespostas" class="answers" align="end">
+                        <mat-card class="answer-box box-questions" >
+                            <mat-card-header>
+                                <div mat-card-avatar class="avatar">
+                                    <img src="assets/icons/icon-person.svg" alt="Person Icon" class="custom-icon">
+                                </div>
+                                <mat-card-title>Usuário X</mat-card-title>
+                                <mat-card-subtitle>Período XX</mat-card-subtitle>
+                                <mat-card-actions class="date">Data: 11/12/2020</mat-card-actions>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <h2>Question? Question? Question?</h2>
+                                <p>
+                                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                                    bred for hunting.
+                                </p>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </mat-card-actions>
+
+            </mat-card>
+        </div>
+    </div>
+</div>
