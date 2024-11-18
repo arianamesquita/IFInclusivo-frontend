@@ -12,10 +12,10 @@
             </div>
         </form>
         <div class="box-cards">
-            <mat-card class="cards">
-                <img mat-card-image src="~assets/images/notebook_cadastro.svg">
+            <mat-card class="cards" *ngFor="let data of categorias">
+                <img class="image" mat-card-image [src]="data.icon">
                 <mat-card-content>
-                    <h3>Arquitetura</h3>
+                    <h3>{{ data.nome }}</h3>
                 </mat-card-content>
             </mat-card>
         </div>

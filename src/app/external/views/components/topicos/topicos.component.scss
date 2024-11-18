@@ -72,8 +72,7 @@
           }  
         }
         .box-cards{
-            width: 100%;
-            height: auto;
+            width: 70%;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -81,18 +80,34 @@
             justify-content: center;
             margin: 10vh 0;
             .cards {
-                width: 220px;
-                height: 200px;
+                width: 200px;
+                height: 180px;
                 background-color: $cyan;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                mat-card-content h3 {
-                    font-size: 20px;
-                    font-family: "Poppins-500-medium";
-                    color: $black;  
+                border-radius: 40px;
+                margin: 30px 30px;
+                .image{
+                    width: 60px;
+                    height: 60px;
+
                 }
+                mat-card-content{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    h3 {
+                        font-size: 18px;
+                        font-family: "Poppins-700";
+                        color: $black;  
+                        margin-top: 30px;
+                    }
+                }
+                
+
             }
         }
     }
