@@ -31,6 +31,17 @@ export class TopnavbarComponent implements OnInit {
     });
   }
 
+  isRouteSelected(route: string): boolean {
+    let currentRoute = this.router.url.substring(1);
+    currentRoute = this.removeAcentos(currentRoute).toLowerCase();  
+    route = this.removeAcentos(route).toLowerCase();
+    if(currentRoute === 'convertelibras'){
+      currentRoute = 'libras';
+    }
+    return currentRoute === route;
+  }
+  
+
   navigateTo(nome: string) {
     if (nome === 'Libras') {
       nome = 'convertelibras';

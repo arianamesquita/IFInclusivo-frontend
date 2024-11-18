@@ -1,1 +1,63 @@
-<p>forum works!</p>
+
+<div class="box">
+    <div class="container">
+        <div class="left">
+            <span>Fórum</span>
+            <mat-card class="box-btn">
+                <mat-card-actions class="btn-container">
+                    <div *ngFor="let button of categorias" class="div">
+                        <button class="btns">{{button.nome}}</button>
+                        <div class="line"></div>
+                    </div>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+        <div class="right">
+            <form [formGroup]="form">
+                <div class="input-wrapper">
+                    <mat-icon class="icon">search</mat-icon>
+                    <input class="custom-input" 
+                        formControlName="pesquisa" 
+                        matInput type="text"
+                        placeholder="Buscar por termo">
+                </div>
+            </form>
+            <mat-card class="box-questions" *ngFor="let pergunta of perguntas">
+                <mat-card-header>
+                    <div mat-card-avatar class="avatar">
+                        <img src="assets/icons/icon-person.svg" alt="Person Icon" class="custom-icon">
+                    </div>
+                    <mat-card-title>{{ pergunta.usuario }}</mat-card-title>
+                    <mat-card-subtitle>{{ pergunta.periodo }}</mat-card-subtitle>
+                    <mat-card-actions class="date">Data: {{ pergunta.data }}</mat-card-actions>
+                </mat-card-header>
+                <mat-card-content>
+                    <h2>{{ pergunta.pergunta }}</h2>
+                    <p>{{ pergunta.descricao }}</p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <button mat-button (click)="toggleRespostas()">Ver respostas</button>
+
+                    <div *ngIf="mostrarRespostas" class="answers" align="end">
+                        <div *ngFor="let data of pergunta.respostas" class="answer-container">
+                            <mat-card class="answer-box box-questions">
+                                <mat-card-header>
+                                    <div mat-card-avatar class="avatar">
+                                        <img src="assets/icons/icon-person.svg" alt="Person Icon" class="custom-icon">
+                                    </div>
+                                    <mat-card-title>{{ data.usuario }}</mat-card-title>
+                                    <mat-card-subtitle>{{ data.periodo }}</mat-card-subtitle>
+                                    <mat-card-actions class="date">Data: {{ data.data }}</mat-card-actions>
+                                </mat-card-header>
+                                <mat-card-content>
+                                    <p>{{ data.resposta }}</p>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                    </div>
+                </mat-card-actions>
+
+            </mat-card>
+        </div>
+    </div>
+</div>
