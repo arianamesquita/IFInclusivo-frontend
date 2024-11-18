@@ -28,8 +28,9 @@
         </div>
         <div class="btns-mid">
             <div *ngFor="let button of buttons">
-                <button mat-raised-button class="buttons login" (click)="navigateTo(button.nome)">
-                    <span class="text_btn">{{button.nome}}</span>
+                <button mat-raised-button class="buttons login" (click)="navigateTo(button.nome)"
+                    [ngClass]="{'lilas': isRouteSelected(button.nome)}">
+                    {{button.nome}}
                 </button>
             </div>
         </div>

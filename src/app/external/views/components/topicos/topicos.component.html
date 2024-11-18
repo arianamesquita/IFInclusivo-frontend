@@ -1,1 +1,23 @@
-<p>topicos works!</p>
+<div class="box">
+    <div class="background"></div>
+    <div class="middle">
+        <span class="text">Tópicos</span>
+        <form [formGroup]="form">
+            <div class="input-wrapper">
+                <mat-icon class="icon">search</mat-icon>
+                <input class="custom-input" 
+                    formControlName="pesquisa" 
+                    matInput type="text"
+                    placeholder="Buscar">
+            </div>
+        </form>
+        <div class="box-cards">
+            <mat-card class="cards">
+                <img mat-card-image src="~assets/images/notebook_cadastro.svg">
+                <mat-card-content>
+                    <h3>Arquitetura</h3>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
