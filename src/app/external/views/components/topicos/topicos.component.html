@@ -11,13 +11,26 @@
                     placeholder="Buscar">
             </div>
         </form>
-        <div class="box-cards">
+        <div class="box-cards" *ngIf="start">
             <mat-card class="cards" *ngFor="let data of categorias">
-                <img class="image" mat-card-image [src]="data.icon">
-                <mat-card-content>
-                    <h3>{{ data.nome }}</h3>
-                </mat-card-content>
+                <button class="none" (click)="changePage(data.nome)">
+                    <img class="image" mat-card-image [src]="data.icon">
+                    <mat-card-content>
+                        <h3>{{ data.nome }}</h3>
+                    </mat-card-content>
+                </button>
             </mat-card>
+        </div>
+        <div class="box-cards" *ngIf="second">
+            <mat-card class="light-card" *ngFor="let busca of mockData">
+                <button class="none">
+                    <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{ busca.nome }}</mat-card-title>
+                    <mat-card-subtitle>{{ busca.descricao }}</mat-card-subtitle>
+                    </mat-card-header>
+                </button>
+              </mat-card>
         </div>
     </div>
 </div>

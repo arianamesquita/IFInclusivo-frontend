@@ -89,6 +89,15 @@
                 justify-content: center;
                 border-radius: 40px;
                 margin: 30px 30px;
+                .none{
+                    width: 100%;
+                    height: 100%;
+                    background: none;
+                    border: none;
+                    outline: none;
+                    box-shadow: none;
+                    cursor: pointer;
+                }
                 .image{
                     width: 60px;
                     height: 60px;
@@ -108,6 +117,37 @@
                 }
                 
 
+            }
+            .light-card{
+                width: 90%;
+                height: auto;
+                padding: 8px 0 25px 5px;
+                border-radius: 25px;
+                justify-content: center;
+                margin: 10px 0;
+                mat-card-subtitle{
+                    padding-top: 5px;
+                }
+                .none{
+                    width: 100%;
+                    height: 100%;
+                    background: none;
+                    border: none;
+                    outline: none;
+                    box-shadow: none;
+                    cursor: pointer;
+                    mat-card-title, mat-card-subtitle {
+                        align-items: flex-start;
+                        text-align: left;
+                        margin-left: 20px;
+                    }
+                }
+            }
+            .example-header-image {
+                background-image: url('../../../../../assets/images/video-null.svg');
+                background-size: cover;
+                scale: 200%;
+                margin: auto 10px;
             }
         }
     }
