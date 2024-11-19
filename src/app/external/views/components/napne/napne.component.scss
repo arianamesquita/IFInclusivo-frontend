@@ -8,7 +8,7 @@
   overflow: hidden;
 
   .background {
-      background-image: 
+      background-image:
           url("../../../../../assets/images/bubble_home_purple.svg"),
           url("../../../../../assets/images/bubble_home_cyan.svg");
       background-position: left top 300px, left 0px top 200px; // Ajuste personalizado para cada bolha
@@ -43,22 +43,24 @@
 }
 
 
+
+
 .text-section {
-  max-width: 300px;
+  max-width: 500px;
 }
 
 /* titulo negrito */
 .text-section h1 {
   font-family: "Poppins-600-semibold";
   font-weight: 600;
-  font-size: 2em;
+  font-size: 3em;
   color: $black;
   text-align: start;
 }
-
+/*imagem principal */
 .image-section img {
   width: 40vw;
-  height: 60vh;
+  height: 55vh;
   align-items: center;
   justify-content: center;
 }
@@ -72,14 +74,14 @@
 /* título principal */
 .texto {
   text-align: center;
-  padding: 20px;
+  padding: 30px;
   width: 100%;
 }
-
+/* titulo dos topicos */
 .texto h1 {
   font-family: "Poppins-600-semibold";
   font-weight: 600;
-  font-size: 24px;
+  font-size: 55px;
   color: $black;
   margin: 0;
 }
@@ -92,13 +94,14 @@
   padding: 20px;
   margin: 20px auto; /* Centraliza o elemento */
   width: 100%; /* Responsivo para telas menores */
-  max-width: 58vw; /* Limita a largura máxima */
+  max-width: 55vw; /* Limita a largura máxima */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra */
-  /* Estilo dos títulos  */
+
+  /* Estilo dos títulos topicps  */
   h2 {
     font-family: "Poppins-600-semibold";
     font-weight: 600;
-    font-size: 20px;
+    font-size: 30px;
     color: $black;
     border-radius: 8px;
     text-align: center;
@@ -118,7 +121,35 @@
 .info-box p {
   font-family: "Poppins-600-medium";
   font-weight: 600;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 1.5;
   text-align: start;
 }
+
+
+
+.footer {
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+  text-align: center;
+
+}
+
+.footer p {
+  margin: 5px 0;
+  font-size: 20px; /* Tamanho do texto */
+  color: #333;
+}
+
+.footer a {
+  color: #000; /* Cor do link */
+
+  font-weight: 600; /* Define peso para destacar o link */
+}
+
+.footer a:hover {
+  text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+  color: #007b7b; /* Cor ao passar o mouse */
+}
+
+
