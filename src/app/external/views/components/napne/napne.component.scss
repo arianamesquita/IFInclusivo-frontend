@@ -53,9 +53,9 @@
 .text-section h1 {
   font-family: "Poppins-600-semibold";
   font-weight: 600;
-  font-size: 3em;
+  font-size: 2.5em;
   color: $black;
-  text-align: start;
+  text-align: flex-start;
 }
 /*imagem principal */
 .image-section img {
@@ -81,7 +81,7 @@
 .texto h1 {
   font-family: "Poppins-600-semibold";
   font-weight: 600;
-  font-size: 55px;
+  font-size: 36px;
   color: $black;
   margin: 0;
 }
@@ -101,7 +101,7 @@
   h2 {
     font-family: "Poppins-600-semibold";
     font-weight: 600;
-    font-size: 30px;
+    font-size: 22px;
     color: $black;
     border-radius: 8px;
     text-align: center;
@@ -121,9 +121,9 @@
 .info-box p {
   font-family: "Poppins-600-medium";
   font-weight: 600;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1.5;
-  text-align: start;
+  text-align: justify;
 }
 
 
