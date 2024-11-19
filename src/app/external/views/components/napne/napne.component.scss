@@ -1,0 +1,155 @@
+@import '/src/assets/colors/colors.scss';
+@import '/src/assets/fonts/fonts.scss';
+.box {
+  background-color: $background;
+  width: 100vw;
+  min-height: 100vh; // Usa min-height para que a altura acompanhe o conteúdo
+  position: relative;
+  overflow: hidden;
+
+  .background {
+      background-image:
+          url("../../../../../assets/images/bubble_home_purple.svg"),
+          url("../../../../../assets/images/bubble_home_cyan.svg");
+      background-position: left top 300px, left 0px top 200px; // Ajuste personalizado para cada bolha
+      background-size: 130px, 110px;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+    min-height: 80vh;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
+
+    .title-img {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin: 10vh 0;
+    }
+  }
+}
+
+
+
+
+.text-section {
+  max-width: 500px;
+}
+
+/* titulo negrito */
+.text-section h1 {
+  font-family: "Poppins-600-semibold";
+  font-weight: 600;
+  font-size: 2.5em;
+  color: $black;
+  text-align: flex-start;
+}
+/*imagem principal */
+.image-section img {
+  width: 40vw;
+  height: 55vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* título principal */
+.texto {
+  text-align: center;
+  padding: 30px;
+  width: 100%;
+}
+/* titulo dos topicos */
+.texto h1 {
+  font-family: "Poppins-600-semibold";
+  font-weight: 600;
+  font-size: 36px;
+  color: $black;
+  margin: 0;
+}
+
+/* Contêiner de cada info-box */
+.info-box {
+  background-color: $btn-purple;
+  color: $black;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto; /* Centraliza o elemento */
+  width: 100%; /* Responsivo para telas menores */
+  max-width: 55vw; /* Limita a largura máxima */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra */
+
+  /* Estilo dos títulos topicps  */
+  h2 {
+    font-family: "Poppins-600-semibold";
+    font-weight: 600;
+    font-size: 22px;
+    color: $black;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .white{
+    font-family: "Poppins-600";
+    font-weight: 600;
+    font-size: 30px;
+    color: white;
+    border-radius: 8px;
+    text-align: start;
+    text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Estilo do texto dentro  */
+.info-box p {
+  font-family: "Poppins-600-medium";
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+
+
+.footer {
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+  text-align: center;
+
+}
+
+.footer p {
+  margin: 5px 0;
+  font-size: 20px; /* Tamanho do texto */
+  color: #333;
+}
+
+.footer a {
+  color: #000; /* Cor do link */
+
+  font-weight: 600; /* Define peso para destacar o link */
+}
+
+.footer a:hover {
+  text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+  color: #007b7b; /* Cor ao passar o mouse */
+}
+
+
