@@ -7,7 +7,8 @@ import { HttpService } from 'src/app/shared/service-http/http.service';
   providedIn: 'root'
 })
 export class ExternalService {
-  endpointLibras: string = '/teste';
+  endpointLibras: string = 'sinais';
+  endpointTopico: string = 'topicos'
 
   constructor(private readonly http: HttpService) { }
 
@@ -27,5 +28,12 @@ export class ExternalService {
 
   getAllForum(){
     
+  }
+
+  getAllTopicos(){
+    return this.http.genericGet(this.endpointTopico)
+    .pipe((res) => {
+      return res;
+    })
   }
 }
