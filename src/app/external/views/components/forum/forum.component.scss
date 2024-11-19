@@ -1,0 +1,179 @@
+@import '/src/assets/colors/colors.scss';
+@import '/src/assets/fonts/fonts.scss';
+
+.box {
+    background-color: $background;
+    width: 100vw;
+    min-height: 100vh; // Usa min-height para que a altura acompanhe o conteúdo
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    .container{
+        width: 80%;
+        height: 80%;
+        margin: 10vh 20vh;
+        display: flex;
+        flex-direction: row;
+        .left{
+            width: 15vw;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            span{
+                width: 100%;
+                height: 40px;
+                text-align: center;
+                align-items: center;
+                font-family: "Poppins-500-medium";
+                font-size: 24px;
+            }
+            .box-btn{
+                width: 100%;
+                height: 100%;
+                background-color: $btn-green-2;
+                border-radius: 1vw;
+                .btn-container{
+                    width: 100%;
+                    height: 40vh;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 1vh;
+                    .div {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        .btns{
+                            height: 8vh;
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            background: none;
+                            border: none;
+                            outline: none;
+                            box-shadow: none;
+                            text-align: center;
+                            align-items: center;
+                            font-family: "Poppins-500-medium";
+                            font-size: 16px;
+                            cursor: pointer;
+                        }
+                        .line{
+                            width: calc(100% + 20px);
+                            height: 2px;
+                            background-color: white;
+                        }
+                    }
+                }
+            }
+
+
+        }
+        .right{
+            width: 60vw;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            form{
+                width: 80%;
+            }
+            .input-wrapper {
+                position: relative;
+                align-items: center;
+                display: flex;
+                width: 100%;
+                justify-content: center;
+
+              .custom-input {
+                width: 80%;
+                height: 30px;
+                padding: 0 10px 0 65px; 
+                border: 2px solid $light-purple;
+                border-radius: 35px;
+                font-size: 14px;
+                font-style: italic;
+                font-family: "Poppins-400-light";
+                outline: none;
+                background-color: $light-purple;
+                color: $btn-text;  
+              }
+              .custom-input::placeholder {
+                color: $btn-text; 
+              }
+              .icon {
+                position: absolute;
+                left: 50px; 
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 22px;
+                color: $btn-text; /* Cor do ícone */
+                cursor: pointer;
+              }  
+            }
+
+            .box-questions{
+                width: 90%;
+                background-color: $background;
+                mat-card-title, mat-card-subtitle{
+                    font-family: "Poppins-500-medium";
+                    margin-left: 10px;
+                }
+                mat-card-title{
+                    font-size: 20px;
+                }
+                mat-card-content{
+                    padding-top: 10px;
+                }
+                mat-card-header {
+                    mat-card-actions.date {
+                      margin-left: auto; 
+                      font-size: 11px; 
+                      color: #666;
+                    }
+                }
+                mat-card-content{
+                    font-family: "Poppins-400-light";
+                    font-size: 14px;
+                    text-align: justify;
+                }
+                mat-card-content h2{
+                    font-size: 18px;
+                    font-family: "Poppins-500-medium";
+                }
+                mat-card-actions{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    margin-right: 0;
+                    button{
+                        font-size: 14px;
+                        font-family: "Poppins-500-medium";
+                    }
+                    .answers{
+                        display: flex;
+                        align-items: flex-end;
+                        flex-direction: column;
+                        width: 100%;
+                        margin-top: 10px;
+
+                    }
+                }
+                .answer-container{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    width: 100%;
+                    padding-top: 30px;
+                }
+            }
+        }
+
+    }
+}

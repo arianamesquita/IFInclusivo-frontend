@@ -1,3 +1,8 @@
 {
-    "editor.fontSize": 11
+    "editor.fontSize": 11,
+    "debug.console.fontSize": 11,
+    "scm.inputFontSize": 11,
+    "terminal.integrated.fontSize": 11,
+    "chat.editor.fontSize": 11,
+    "markdown.preview.fontSize": 11
 }

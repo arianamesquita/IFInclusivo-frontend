@@ -35,9 +35,27 @@
 }
 
 @font-face {
+    font-family: "Poppins-500-medium";
+    font-weight: 500;
+    src: url(../fonts/Poppins/Poppins-Medium.ttf)format('truetype');
+}
+
+@font-face {
+    font-family: "Poppins-500-bold";
+    font-weight: 500;
+    src: url(../fonts/Poppins/Poppins-Bold.ttf)format('truetype');
+}
+
+@font-face {
     font-family: "Poppins-400-regular";
     font-weight: 400;
     src: url(../fonts/Poppins/Poppins-Regular.ttf)format('truetype');
+}
+
+@font-face {
+    font-family: "Poppins-400-light";
+    font-weight: 400;
+    src: url(../fonts/Poppins/Poppins-Light.ttf)format('truetype');
 }
 
 @font-face {
