@@ -11,9 +11,9 @@ import { Subject, takeUntil } from 'rxjs';
 export class TopicosComponent {
   private readonly unsubscribeAll: Subject<any[]> = new Subject();
   form: FormGroup;
-  start: boolean;
-  second: boolean;
-  third: boolean;
+  start: boolean = true;
+  second: boolean = false;
+  third: boolean = false;
   topicos: any[] = [];
   mostrarRespostas = false;
 
@@ -64,27 +64,20 @@ export class TopicosComponent {
     this.form = this.builder.group({
       pesquisa: [null,]
     })
-    this.start = true;
-    this.second = false;
-    this.third = false;
+    this.changePage(true, false, false)
     this.obterTopicos();
   }
 
-  changePage(event: any){
-    this.start = false;
-    this.second = true;
-    this.third = false;
-  }
-
-  changePageThird(){
-    this.start = false;
-    this.second = false;
-    this.third = true;
+  changePage(start: boolean, second: boolean, third: boolean){
+    this.start = start;
+    this.second = second;
+    this.third = third;
   }
 
   obterTopicos(){
     this.service.getAllTopicos().pipe(takeUntil(this.unsubscribeAll)).subscribe(
       (res: any) => {
+        console.log(res)
         this.topicos = res;
       }
     )
