@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ExternalService } from '../../service/external.service';
 import { Subject, takeUntil } from 'rxjs';
@@ -8,7 +8,7 @@ import { Subject, takeUntil } from 'rxjs';
   templateUrl: './topicos.component.html',
   styleUrls: ['./topicos.component.scss']
 })
-export class TopicosComponent {
+export class TopicosComponent implements OnInit{
   private readonly unsubscribeAll: Subject<any[]> = new Subject();
   form: FormGroup;
   start: boolean = true;
@@ -16,6 +16,7 @@ export class TopicosComponent {
   third: boolean = false;
   topicos: any[] = [];
   mostrarRespostas = false;
+  assunto: string = '';
 
   categorias = [
     {nome: "Redes", icon : '../../../../../assets/icons/icon-redes.svg'},
@@ -60,18 +61,23 @@ export class TopicosComponent {
 
   constructor(
     private readonly builder: FormBuilder,
-    private readonly service: ExternalService ){
+    private readonly service: ExternalService,
+    private readonly cdr: ChangeDetectorRef ){
     this.form = this.builder.group({
       pesquisa: [null,]
     })
-    this.changePage(true, false, false)
+  }
+
+  ngOnInit(){
+    this.changePage(true, false, false, '')
     this.obterTopicos();
   }
 
-  changePage(start: boolean, second: boolean, third: boolean){
+  changePage(start: boolean, second: boolean, third: boolean, nome: string){
     this.start = start;
     this.second = second;
     this.third = third;
+    this.assunto = nome;
   }
 
   obterTopicos(){

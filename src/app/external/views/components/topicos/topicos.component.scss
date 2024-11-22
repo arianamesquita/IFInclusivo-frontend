@@ -45,31 +45,70 @@
             width: 100%;
             justify-content: center;
 
-          .custom-input {
-            width: 80%;
-            height: 30px;
-            padding: 0 10px 0 65px; 
-            border: 2px solid $light-purple;
-            border-radius: 35px;
-            font-size: 14px;
-            font-style: italic;
-            font-family: "Poppins-400-light";
-            outline: none;
-            background-color: $light-purple;
-            color: $btn-text;  
-          }
-          .custom-input::placeholder {
-            color: $btn-text; 
-          }
-          .icon {
-            position: absolute;
-            left: 50px; 
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 22px;
-            color: $btn-text; /* Cor do ícone */
-            cursor: pointer;
-          }  
+            .custom-input {
+                width: 80%;
+                height: 30px;
+                padding: 0 10px 0 65px; 
+                border: 2px solid $light-purple;
+                border-radius: 35px;
+                font-size: 14px;
+                font-style: italic;
+                font-family: "Poppins-400-light";
+                outline: none;
+                background-color: $light-purple;
+                color: $btn-text;  
+            }
+            .custom-input::placeholder {
+                color: $btn-text; 
+            }
+            .icon {
+                position: absolute;
+                left: 4vw; 
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 22px;
+                color: $btn-text; /* Cor do ícone */
+                cursor: pointer;
+            }  
+        }
+        .text-search{
+            height: 15vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Poppins-500-medium";
+            font-size: 20px;
+        }
+        .row{
+            display: flex;
+            flex-direction: row;
+            width: 70%;
+            height: fit-content;
+            .box-avatar{
+                width: 25%;
+                height: fit-content;
+                background-color: mix($light-purple, transparent, 50%);
+                .img-avatar {
+                    width: 20%;
+                    img{
+                        width: 100%;
+                    }
+                }
+                mat-card-title{
+                    font-size: 16px;
+                }
+                mat-card-subtitle{
+                    font-size: 14px;
+                }
+                mat-card-content{
+                    margin-top: 5%;
+                    font-size: 14px;
+                }
+            }
+        }
+        .box-row{
+            width: 100% !important;
+            margin: 0 !important;
         }
         .box-cards{
             width: 70%;
@@ -206,5 +245,20 @@
                 }
             }
         }
+    }
+}
+@media (max-width: 1480px) {
+    .box .middle .input-wrapper .icon {
+        position: absolute;
+        left: 3vw !important; 
+    }  
+       
+}
+@media (min-width: 1480px) {
+    .box-cards{
+        width: 50% !important;
+    }
+    form{
+        width: 42% !important;
     }
 }

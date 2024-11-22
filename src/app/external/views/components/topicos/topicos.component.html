@@ -1,6 +1,6 @@
 <div class="box">
     <div class="background"></div>
-    <div class="middle">
+    <div class="middle" *ngIf="!third">
         <span class="text">Tópicos</span>
         <form [formGroup]="form">
             <div class="input-wrapper">
@@ -13,7 +13,7 @@
         </form>
         <div class="box-cards" *ngIf="start">
             <mat-card class="cards" *ngFor="let data of categorias">
-                <button class="none" (click)="changePage(false, true, false)">
+                <button class="none" (click)="changePage(false, true, false, data.nome)">
                     <img class="image" mat-card-image [src]="data.icon">
                     <mat-card-content>
                         <h3>{{ data.nome }}</h3>
@@ -23,7 +23,7 @@
         </div>
         <div class="box-cards" *ngIf="second">
             <mat-card class="light-card" *ngFor="let busca of mockData">
-                <button class="none" (click)="changePage(false, false, true)">
+                <button class="none" (click)="changePage(false, false, true, assunto)">
                     <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
                     <mat-card-title>{{ busca.nome }}</mat-card-title>
@@ -32,42 +32,62 @@
                 </button>
               </mat-card>
         </div>
-        <div class="box-cards" *ngIf="third">
-            <mat-card class="box-questions" *ngFor="let pergunta of perguntas">
+    </div>
+    <div class="middle"  *ngIf="third">
+        <span class="text-search">Tema Pesquisado: {{assunto}}</span>
+        <div class="row">
+            <mat-card class="box-avatar">
                 <mat-card-header>
-                    <div mat-card-avatar class="avatar">
-                        <img src="assets/icons/icon-person.svg" alt="Person Icon" class="custom-icon">
+                    <div mat-card-avatar class="img-avatar">
+                        <img src="../../../../../assets/icons/person-square.svg" alt="imagem avatar">
                     </div>
-                    <mat-card-title>{{ pergunta.usuario }}</mat-card-title>
-                    <mat-card-subtitle>{{ pergunta.periodo }}</mat-card-subtitle>
-                    <mat-card-actions class="date">Data: {{ pergunta.data }}</mat-card-actions>
-                </mat-card-header>
-                <mat-card-content>
-                    <h2>{{ pergunta.pergunta }}</h2>
-                    <p>{{ pergunta.descricao }}</p>
-                </mat-card-content>
-                <mat-card-actions align="end">
-                    <button mat-button (click)="toggleRespostas()">Ver respostas</button>
-
-                    <div *ngIf="mostrarRespostas" class="answers" align="end">
-                        <div *ngFor="let data of pergunta.respostas" class="answer-container">
-                            <mat-card class="answer-box box-questions">
-                                <mat-card-header>
-                                    <div mat-card-avatar class="avatar">
-                                        <img src="assets/icons/icon-person.svg" alt="Person Icon" class="custom-icon">
-                                    </div>
-                                    <mat-card-title>{{ data.usuario }}</mat-card-title>
-                                    <mat-card-subtitle>{{ data.periodo }}</mat-card-subtitle>
-                                    <mat-card-actions class="date">Data: {{ data.data }}</mat-card-actions>
-                                </mat-card-header>
-                                <mat-card-content>
-                                    <p>{{ data.resposta }}</p>
-                                </mat-card-content>
-                            </mat-card>
-                        </div>
-                    </div>
-                </mat-card-actions>
+                    <mat-card-title>Junio Lima</mat-card-title>
+                    <mat-card-subtitle>Professor</mat-card-subtitle>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <p>
+                        Descrição do Perfil do Professor.
+                    </p>
+                  </mat-card-content>
             </mat-card>
+            <div class="box-cards box-row">
+                <mat-card class="box-questions" *ngFor="let pergunta of perguntas">
+                    <mat-card-header>
+                        <div mat-card-avatar class="avatar">
+                            <img src="assets/icons/icon-person.svg" alt="Person Icon" class="custom-icon">
+                        </div>
+                        <mat-card-title>{{ pergunta.usuario }}</mat-card-title>
+                        <mat-card-subtitle>{{ pergunta.periodo }}</mat-card-subtitle>
+                        <mat-card-actions class="date">Data: {{ pergunta.data }}</mat-card-actions>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <h2>{{ pergunta.pergunta }}</h2>
+                        <p>{{ pergunta.descricao }}</p>
+                    </mat-card-content>
+                    <mat-card-actions align="end">
+                        <button mat-button (click)="toggleRespostas()">Ver respostas</button>
+
+                        <div *ngIf="mostrarRespostas" class="answers" align="end">
+                            <div *ngFor="let data of pergunta.respostas" class="answer-container">
+                                <mat-card class="answer-box box-questions">
+                                    <mat-card-header>
+                                        <div mat-card-avatar class="avatar">
+                                            <img src="assets/icons/icon-person.svg" alt="Person Icon" class="custom-icon">
+                                        </div>
+                                        <mat-card-title>{{ data.usuario }}</mat-card-title>
+                                        <mat-card-subtitle>{{ data.periodo }}</mat-card-subtitle>
+                                        <mat-card-actions class="date">Data: {{ data.data }}</mat-card-actions>
+                                    </mat-card-header>
+                                    <mat-card-content>
+                                        <p>{{ data.resposta }}</p>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
         </div>
+
     </div>
 </div>
