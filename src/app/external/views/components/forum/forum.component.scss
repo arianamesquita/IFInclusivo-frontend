@@ -177,3 +177,17 @@
 
     }
 }
+
+@media (min-width: 1480px) {
+    .box .container .right .input-wrapper .icon {
+        position: absolute;
+        left: 3.5vw !important; 
+    }   
+}
+
+@media (max-width: 1400px) {
+    .box .container .right .input-wrapper .icon {
+        position: absolute;
+        left: 3vw !important; 
+    }   
+}
