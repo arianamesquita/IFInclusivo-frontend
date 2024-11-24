@@ -10,6 +10,7 @@ import { ConvertelibrasComponent } from './views/components/convertelibras/conve
 import { FormsModule } from '@angular/forms';
 import { ModalCadastroComponent } from './views/components/modais/modal-cadastro/modal-cadastro.component';
 import { ModalLoginComponent } from './views/components/modais/modal-login/modal-login.component';
+import { ResultadoComponent } from './views/components/convertelibras/resultado/resultado.component';
 
 @NgModule({
   declarations: [ 
@@ -19,7 +20,8 @@ import { ModalLoginComponent } from './views/components/modais/modal-login/modal
     TopicosComponent, 
     ConvertelibrasComponent, 
     ModalCadastroComponent, 
-    ModalLoginComponent
+    ModalLoginComponent, 
+    ResultadoComponent
   ],
   imports: [
     CommonModule,

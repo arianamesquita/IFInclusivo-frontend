@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { sinaisLibras } from '../../../../shared/models/convertelibras.model';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { ExternalService } from '../../service/external.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-convertelibras',
@@ -24,11 +25,16 @@ export class ConvertelibrasComponent {
     justificativa = '';
     status = '';
 
-  constructor(private externalService: ExternalService){
-    //metodo que chama todos obj do db teste
-    this.obterSinaisCadastrados();
-  }
+    constructor(private externalService: ExternalService, private router: Router) {
+      // método que chama todos os objetos do db teste
+      this.obterSinaisCadastrados();
+    }
+    
 
+  navigateTo(page: string): void {
+    // Navega para a rota correspondente
+    this.router.navigate([page]);
+  }
   obterSinaisCadastrados(){
     //this.ConvertelibrasService.buscarLibrasDePalavra()
     //.subscribe(sinais => this.sinais = sinais)

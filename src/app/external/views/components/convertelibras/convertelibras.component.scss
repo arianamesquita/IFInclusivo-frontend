@@ -1,0 +1,181 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f0f8f8; /* Cor de fundo clara */
+    height: 100vh;
+  }
+  
+  .title {
+    color: rgba(0, 0, 0, 0.70);
+    text-align: center;
+    font-family: Poppins;
+    font-size: 41px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+  }
+  
+  .subtitle {
+    color: #84A6E0;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+  }
+  
+  .search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+  }
+  
+  .search-bar .search-icon {
+    position: absolute;
+    left: 15px;
+    width: 20px; /* Tamanho do ícone */
+    height: 20px;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    padding: 10px 15px 10px 45px; /* Espaço extra para o ícone */
+    border: none;
+    border-radius: 20px;
+    background-color: #e6d5f7;
+    font-size: 1rem;
+    color: #555555;
+  }
+  
+  .search-bar input::placeholder {
+    color: #b8b8b8;
+    font-style: italic;
+  }
+
+/* Grid de cards */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Definir 3 colunas fixas para telas grandes */
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+  }
+  
+
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    color: #333333;
+    text-align: center;
+  }
+  @media (max-width: 1024px) {
+    /* Para telas médias (tablets) */
+    .card-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 colunas para telas médias */
+    }
+  }
+  @media (max-width: 768px) {
+    /* Para telas pequenas (smartphones) */
+    .card-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Ajuste flexível para telas pequenas */
+    }
+  
+    .title {
+      font-size: 1.5rem;
+    }
+  
+    .subtitle {
+      font-size: 0.9rem;
+      color: rgb(136, 241, 136);
+    }
+  
+    .search-bar {
+      width: 90%;
+    }
+  
+    .search-bar .search-icon {
+      width: 16px;
+      height: 16px;
+    }
+  
+    .search-bar input {
+      font-size: 0.9rem;
+      padding: 10px 15px 10px 40px;
+    }
+    .texto-verde {
+        width: 90%; /* Garante que a largura da div seja 90% do contêiner em telas menores */
+      }
+  }
+
+  /* Card individual */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 150px;
+    background-color: #b8f2f2;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    color: #333333;
+    text-align: center;
+  }
+
+  .cardtext {
+
+    width: 100%; /* Garante que a largura ocupe 100% do contêiner */
+    max-width: 900px; /* Define o tamanho máximo da div */
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: #DFF5F5;
+  }
+  .text {
+    padding: 40px; /* Espaçamento interno */
+    text-align: center; /* Alinhamento do texto */
+    margin: 0 auto; /* Centraliza a div no meio da tela */
+    color: #84A6E0;
+    text-align: justify;
+    font-family: Poppins;
+    max-width: 800px; 
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+ 
+}
+  
