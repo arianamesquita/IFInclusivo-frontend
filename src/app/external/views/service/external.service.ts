@@ -7,7 +7,8 @@ import { HttpService } from 'src/app/shared/service-http/http.service';
   providedIn: 'root'
 })
 export class ExternalService {
-  endpointLibras: string = '/teste';
+  endpointLibras: string = 'sinais';
+  endpointTopico: string = 'topicos'
 
   constructor(private readonly http: HttpService) { }
 
@@ -20,6 +21,17 @@ export class ExternalService {
 
   cadastrarLibras(sinais: sinaisLibras) { //levar para o internal depois, o cadastrar vai ser feito só na parte interna após login
     return this.http.genericPost(this.endpointLibras, sinais, '')
+    .pipe((res) => {
+      return res;
+    })
+  }
+
+  getAllForum(){
+    
+  }
+
+  getAllTopicos(){
+    return this.http.genericGet(this.endpointTopico)
     .pipe((res) => {
       return res;
     })
