@@ -1,14 +1,21 @@
 @import '/src/assets/colors/colors.scss';
 @import '/src/assets/fonts/fonts.scss';
 
+.bory{
+  background-color: $background;
+  width: 100vw;
+  min-height: 100vh; // Usa min-height para que a altura acompanhe o conteúdo
+  position: relative;
+  overflow: hidden;
+}
 
 .container {
+    margin-top: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background-color: #f0f8f8; /* Cor de fundo clara */
     height: 100vh;
   }
   
