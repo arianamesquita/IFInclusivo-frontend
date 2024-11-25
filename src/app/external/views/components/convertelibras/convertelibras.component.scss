@@ -1,3 +1,7 @@
+@import '/src/assets/colors/colors.scss';
+@import '/src/assets/fonts/fonts.scss';
+
+
 .container {
     display: flex;
     flex-direction: column;
@@ -16,6 +20,7 @@
     font-style: normal;
     font-weight: 800;
     line-height: normal;
+    margin-top: 100px;
   }
   
   .subtitle {
@@ -157,13 +162,14 @@
   }
 
   .cardtext {
+    width: 90%; /* Ocupa 90% da largura disponível */
+    max-width: 900px; /* Define um tamanho máximo */
+    margin: 20px auto; /* Centraliza horizontalmente */
+    padding: 20px; /* Adiciona espaçamento interno */
+    border-radius: 20px;
+    background: #003737;
+}
 
-    width: 100%; /* Garante que a largura ocupe 100% do contêiner */
-    max-width: 900px; /* Define o tamanho máximo da div */
-    flex-shrink: 0;
-    border-radius: 40px;
-    background: #DFF5F5;
-  }
   .text {
     padding: 40px; /* Espaçamento interno */
     text-align: center; /* Alinhamento do texto */
