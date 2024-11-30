@@ -31,4 +31,9 @@ export class HttpService {
     const url = `${this.apiUrl}/${endpoint}/${id}`;
     return this.http.delete<T>(url).pipe(map((res: T) => res));
   }
+
+  genericGetData<T>(endpoint: string, data?: string, params?: any): Observable<T>{
+    const url = `${this.apiUrl}/${endpoint}/filter?categoria=${data}&pagina=${params.pagina}&tamanho=${params.tamanho}`;
+    return this.http.get<T>(url).pipe(map((res: T) => res));
+  }
 }

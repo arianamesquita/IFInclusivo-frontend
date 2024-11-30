@@ -8,7 +8,8 @@ import { HttpService } from 'src/app/shared/service-http/http.service';
 })
 export class ExternalService {
   endpointLibras: string = 'sinais';
-  endpointTopico: string = 'topicos'
+  endpointTopico: string = 'topicos';
+  endpointForum: string = 'publicacoes';
 
   constructor(private readonly http: HttpService) { }
 
@@ -27,11 +28,21 @@ export class ExternalService {
   }
 
   getAllForum(){
-    
+    return this.http.genericGet(this.endpointForum)
+    .pipe((res) => {
+      return res;
+    })
   }
 
   getAllTopicos(){
     return this.http.genericGet(this.endpointTopico)
+    .pipe((res) => {
+      return res;
+    })
+  }
+
+  getAllTopicosCategoria(categoria: string, params: any){
+    return this.http.genericGetData(this.endpointTopico, categoria, params)
     .pipe((res) => {
       return res;
     })
