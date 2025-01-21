@@ -36,4 +36,9 @@ export class HttpService {
     const url = `${this.apiUrl}/${endpoint}/filter?categoria=${data}&pagina=${params.pagina}&tamanho=${params.tamanho}`;
     return this.http.get<T>(url).pipe(map((res: T) => res));
   }
+
+  genericGetComments<T>(endpoint: string, id?: string, params?: any): Observable<T>{
+    const url = `${this.apiUrl}/${endpoint}/${id}?pagina=${params.pagina}&tamanho=${params.tamanho}`;
+    return this.http.get<T>(url).pipe(map((res: T) => res));
+  }
 }

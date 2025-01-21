@@ -48,6 +48,7 @@ export class TopicosComponent implements OnInit{
     pagina: 0,
     tamanho: 10
   }
+  categoria: string ='';
 
   constructor(
     private readonly builder: FormBuilder,
@@ -80,12 +81,17 @@ export class TopicosComponent implements OnInit{
     )
   }
 
+  removerAcentuacoes(data: any){
+    const categoria = removerAcentuacoesEspacos(data);
+    return categoria;
+  }
+
   obterAssuntoCategoria(categoria: string){
     const data = removerAcentuacoesEspacos(categoria).toUpperCase();
     this.service.getAllTopicosCategoria(data, this.params).pipe(takeUntil(this.unsubscribeAll)).subscribe(
       (res: any) => {
         this.topicos = res.content;
-        this.professor = this.topicos[0].professor;
+        this.professor = res.content[0].professor;
       }
     )
   }

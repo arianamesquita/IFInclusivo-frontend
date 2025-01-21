@@ -10,6 +10,7 @@ export class ExternalService {
   endpointLibras: string = 'sinais';
   endpointTopico: string = 'topicos';
   endpointForum: string = 'publicacoes';
+  endpointComentarios: string = 'comentarios/publicacao'
 
   constructor(private readonly http: HttpService) { }
 
@@ -34,6 +35,13 @@ export class ExternalService {
     })
   }
 
+  getAllComentariosPost(id: string, params: any){
+    return this.http.genericGetComments(this.endpointComentarios, id, params)
+    .pipe((res) => {
+      return res;
+    })
+  }
+
   getAllTopicos(){
     return this.http.genericGet(this.endpointTopico)
     .pipe((res) => {
@@ -42,7 +50,7 @@ export class ExternalService {
   }
 
   getAllTopicosCategoria(categoria: string, params: any){
-    return this.http.genericGetData(this.endpointTopico, categoria, params)
+    return this.http.genericGetData(this.endpointForum, categoria, params)
     .pipe((res) => {
       return res;
     })

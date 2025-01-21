@@ -26,7 +26,7 @@
                 <button class="none" (click)="changePage(false, false, true, assunto)">
                     <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>{{ busca.tema }}</mat-card-title>
+                    <mat-card-title>{{ assunto }}</mat-card-title>
                     <mat-card-subtitle>{{ busca.titulo }}</mat-card-subtitle>
                     </mat-card-header>
                 </button>
@@ -35,24 +35,28 @@
     </div>
     <div class="middle" *ngIf="third">
         <span class="text-search">Tema Pesquisado: {{assunto}}</span>
-        <div class="row" >
+        <div class="row">
             <mat-card class="box-avatar">
                 <mat-card-header>
                     <div mat-card-avatar class="img-avatar">
                         <img src="../../../../../assets/icons/person-square.svg" alt="imagem avatar">
                     </div>
-                    <mat-card-title>{{professor.nome}}</mat-card-title>
-                    <mat-card-subtitle>{{professor.formacao}}</mat-card-subtitle>
+                    <mat-card-title>{{ professor.nome }}</mat-card-title>
+                    <mat-card-subtitle>{{ professor.formacao }}</mat-card-subtitle>
                   </mat-card-header>
             </mat-card>
             <div class="box-row">
                 <div class="box-cards" *ngFor="let busca of topicos">
                     <mat-card class="box-questions">
                         <mat-card-header>
-                            <mat-card-title>{{ busca.tema }}</mat-card-title>
+                            <div mat-card-avatar class="avatar">
+                                <img src="assets/icons/icon-person.svg" alt="Person Icon" class="custom-icon">
+                            </div>
+                            <mat-card-title>{{ busca.professor.nome }}</mat-card-title>
                             <mat-card-actions class="date">Data: {{ busca.dataCriacao | date: 'dd/MM/yyyy'}}</mat-card-actions>
                         </mat-card-header>
                         <mat-card-content>
+                            <h2>{{ assunto }}</h2>
                             <p>{{ busca.titulo }}</p>
                         </mat-card-content>
                         <mat-card-actions align="end">

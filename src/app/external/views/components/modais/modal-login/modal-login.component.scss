@@ -1,7 +1,6 @@
 @import '/src/assets/colors/colors.scss';
 @import '/src/assets/fonts/fonts.scss';
 
-
 .modal-container{
     background-color: $background;
     width: 100%;
@@ -69,7 +68,6 @@
             font-family: "Poppins-500-regular";
             margin-top: 25px;
         }
-
     }
     .login {
         position: absolute;
@@ -99,6 +97,7 @@
                 flex-direction: column;
                 align-items: center; 
                 .row {
+                    width: 280px;
                     display: flex;
                     flex-direction: column;
                     align-items: flex-start;
@@ -127,17 +126,16 @@
                         line-height: 18px;
                     }
                 }
-
             }
 
             .btn-bottom{
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                padding-left: 7%;
+                padding-left: 5%;
                 width: 100%;
                 .btn{
-                    width: 60%;
+                    width: 65%;
                     border-radius: 30px;
                     background-color: $btn-green;
                     color: $btn-text;
@@ -155,7 +153,5 @@
                 }
             }
         }
-
     }
-
 }
