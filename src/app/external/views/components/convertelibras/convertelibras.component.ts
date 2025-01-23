@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { sinaisLibras } from '../../../../shared/models/convertelibras.model';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { ExternalService } from '../../service/external.service';
-import { Router } from '@angular/router';
+import { Router } from '@angular/router'; // Importação do Router
 
 @Component({
   selector: 'app-convertelibras',
@@ -11,53 +11,54 @@ import { Router } from '@angular/router';
 })
 export class ConvertelibrasComponent {
   private readonly unsubscribeAll: Subject<any[]> = new Subject();
-  sinais: sinaisLibras[] = []
+  sinais: sinaisLibras[] = [];
   sinais$ = new Observable<sinaisLibras[]>();
 
-  //teste de put
+  // Variáveis para teste de PUT
+  id = '';
+  palavra = '';
+  descricao = '';
+  url = '';
+  video = '';
+  foto = '';
+  justificativa = '';
+  status = '';
 
-    id= '';
-    palavra = '';
-    descricao = '';
-    url = '';
-    video = '';
-    foto = '';
-    justificativa = '';
-    status = '';
-
-    constructor(private externalService: ExternalService, private router: Router) {
-      // método que chama todos os objetos do db teste
-      this.obterSinaisCadastrados();
-    }
-    
-
-  navigateTo(page: string): void {
-    // Navega para a rota correspondente
-    this.router.navigate([page]);
+  // Injetando ExternalService e Router
+  constructor(private externalService: ExternalService, private router: Router) {
+    this.obterSinaisCadastrados(); // Chama o método que obtém os sinais
   }
-  obterSinaisCadastrados(){
-    //this.ConvertelibrasService.buscarLibrasDePalavra()
-    //.subscribe(sinais => this.sinais = sinais)
-    //this.sinais$ = this.externalService.buscarLibrasDePalavra();
+
+  // Método para navegação
+  navigateTo(page: string): void {
+    this.router.navigate([page]); // Navega para a página correspondente
+  }
+
+  // Método para obter sinais cadastrados
+  obterSinaisCadastrados() {
     this.externalService.buscarLibrasDePalavra().pipe(takeUntil(this.unsubscribeAll)).subscribe(
       (res: any) => {
-        this.sinais = res;
+        this.sinais = res; // Armazena os sinais recebidos
       }
-    )
-  }
-    //metodo para teste de set
-  cadastrarLibras(){ //levar para o internal depois, o cadastrar vai ser feito só na parte interna após login
-    this.externalService.cadastrarLibras({palavra: this.palavra, descricao: this.descricao, url: this.url,
-      video: this.video, foto: this.foto, justificativa: this.justificativa, status: this.status})
-      .pipe(takeUntil(this.unsubscribeAll))
-      .subscribe(_ => this.obterSinaisCadastrados())
+    );
   }
 
+  // Método para cadastrar Libras (somente no contexto interno após o login)
+  cadastrarLibras() {
+    this.externalService.cadastrarLibras({
+      palavra: this.palavra,
+      descricao: this.descricao,
+      url: this.url,
+      video: this.video,
+      foto: this.foto,
+      justificativa: this.justificativa,
+      status: this.status
+    }).pipe(takeUntil(this.unsubscribeAll)).subscribe(() => this.obterSinaisCadastrados());
+  }
 
+  // Limpeza de recursos ao destruir o componente
   ngOnDestroy(): void {
     this.unsubscribeAll.next([]);
     this.unsubscribeAll.complete();
-}
-
-
+  }
 }
