@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ExternalService } from '../../service/external.service';
+import { Subject, takeUntil } from 'rxjs';
+import { Comentarios, Publicacoes, Usuario } from 'src/app/shared/models/interface.models';
 
 @Component({
   selector: 'app-forum',
@@ -8,7 +10,7 @@ import { ExternalService } from '../../service/external.service';
   styleUrls: ['./forum.component.scss']
 })
 export class ForumComponent {
-
+  private readonly unsubscribeAll: Subject<any[]> = new Subject();
   categorias = [
     { nome: "Banco de Dados" },
     { nome: "Programação" },
@@ -18,6 +20,16 @@ export class ForumComponent {
   ]
   form: FormGroup;
   mostrarRespostas = false;
+
+  publicacoes: Publicacoes[] = [];
+  userIds : any[] = [];
+  usuarios: Usuario[] = [];
+  comentarios: Comentarios[] = [];
+
+  params = {
+    pagina: 0,
+    tamanho: 10
+  }
 
   perguntas = [
     {
@@ -51,11 +63,26 @@ export class ForumComponent {
     })
   }
 
-  toggleRespostas(){
+  ngOnInit(){
+    this.getDataForum();
+  }
+
+  toggleRespostas(id: string){
     this.mostrarRespostas = !this.mostrarRespostas;
+    this.service.getAllComentariosPost(id, this.params).pipe(takeUntil(this.unsubscribeAll)).subscribe(
+      (res: any) => {
+        //console.log(res.content)
+        this.comentarios = res.content
+      }
+    )
   }
 
   getDataForum(){
-    this.service.getAllForum();
+    this.service.getAllForum().pipe(takeUntil(this.unsubscribeAll)).subscribe(
+      (res: any) => {
+        this.publicacoes = res;
+        //console.log(this.publicacoes)
+      }
+    )
   }
 }

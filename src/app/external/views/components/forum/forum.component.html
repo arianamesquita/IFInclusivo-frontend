@@ -22,35 +22,34 @@
                         placeholder="Buscar por termo">
                 </div>
             </form>
-            <mat-card class="box-questions" *ngFor="let pergunta of perguntas">
+            <mat-card class="box-questions" *ngFor="let pergunta of publicacoes">
                 <mat-card-header>
                     <div mat-card-avatar class="avatar">
                         <img src="assets/icons/icon-person.svg" alt="Person Icon" class="custom-icon">
                     </div>
-                    <mat-card-title>{{ pergunta.usuario }}</mat-card-title>
-                    <mat-card-subtitle>{{ pergunta.periodo }}</mat-card-subtitle>
-                    <mat-card-actions class="date">Data: {{ pergunta.data }}</mat-card-actions>
+                    <mat-card-title>{{ pergunta.usuario.nome }}</mat-card-title>
+                    <mat-card-subtitle>{{ pergunta.usuario.biografia }}</mat-card-subtitle>
+                    <mat-card-actions class="date">Data: {{ pergunta.dataCriacao }}</mat-card-actions>
                 </mat-card-header>
                 <mat-card-content>
-                    <h2>{{ pergunta.pergunta }}</h2>
-                    <p>{{ pergunta.descricao }}</p>
+                    <h2>{{ pergunta.titulo }}</h2>
+                    <p>{{ pergunta.text }}</p>
                 </mat-card-content>
                 <mat-card-actions align="end">
-                    <button mat-button (click)="toggleRespostas()">Ver respostas</button>
+                    <button mat-button (click)="toggleRespostas(pergunta.id)">Ver respostas</button>
 
                     <div *ngIf="mostrarRespostas" class="answers" align="end">
-                        <div *ngFor="let data of pergunta.respostas" class="answer-container">
+                        <div *ngFor="let data of comentarios" class="answer-container">
                             <mat-card class="answer-box box-questions">
                                 <mat-card-header>
                                     <div mat-card-avatar class="avatar">
                                         <img src="assets/icons/icon-person.svg" alt="Person Icon" class="custom-icon">
                                     </div>
-                                    <mat-card-title>{{ data.usuario }}</mat-card-title>
-                                    <mat-card-subtitle>{{ data.periodo }}</mat-card-subtitle>
-                                    <mat-card-actions class="date">Data: {{ data.data }}</mat-card-actions>
+                                    <mat-card-title>{{ data.usuario.nome }}</mat-card-title>
+                                    <mat-card-actions class="date">Data: {{ data.dataCriacao }}</mat-card-actions>
                                 </mat-card-header>
                                 <mat-card-content>
-                                    <p>{{ data.resposta }}</p>
+                                    <p>{{ data.content }}</p>
                                 </mat-card-content>
                             </mat-card>
                         </div>

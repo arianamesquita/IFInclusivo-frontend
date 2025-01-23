@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ExternalService } from '../../service/external.service';
 import { Subject, takeUntil } from 'rxjs';
+import { Professor, removerAcentuacoesEspacos, Topico } from 'src/app/shared/models/interface.models';
 
 @Component({
   selector: 'app-topicos',
@@ -14,9 +15,10 @@ export class TopicosComponent implements OnInit{
   start: boolean = true;
   second: boolean = false;
   third: boolean = false;
-  topicos: any[] = [];
+  topicos: Topico[] = [];
   mostrarRespostas = false;
   assunto: string = '';
+  professor: any;
 
   categorias = [
     {nome: "Redes", icon : '../../../../../assets/icons/icon-redes.svg'},
@@ -26,38 +28,27 @@ export class TopicosComponent implements OnInit{
     {nome: "Estrutura de Dados", icon : '../../../../../assets/icons/icon-estrutura-dados.svg'},
     {nome: "Arquitetura de Computadores", icon : '../../../../../assets/icons/icon-arquitetura-comp.svg'},
   ]
-
-  mockData = [
-    { nome: "HTML", descricao: "HTML é uma linguagem de marcação utilizada na construção de páginas na Web..."},
-    { nome: "HTML", descricao: "HTML é uma linguagem de marcação utilizada na construção de páginas na Web..."},
-    { nome: "HTML", descricao: "HTML é uma linguagem de marcação utilizada na construção de páginas na Web..."},
-    { nome: "HTML", descricao: "HTML é uma linguagem de marcação utilizada na construção de páginas na Web..."},
-    { nome: "HTML", descricao: "HTML é uma linguagem de marcação utilizada na construção de páginas na Web..."},
+  
+  respostas = [
+    {
+      usuario: "Usuário Y",
+      periodo: "Período YY",
+      data: "12/12/2020",
+      resposta: "Resposta 1 para a pergunta."
+    },
+    {
+      usuario: "Usuário Z",
+      periodo: "Período ZZ",
+      data: "13/12/2020",
+      resposta: "Resposta 2 para a pergunta."
+    }
   ]
 
-  perguntas = [
-    {
-      usuario: "Usuário X",
-      periodo: "Período 6",
-      data: "11/12/2020",
-      pergunta: "Question? Question? Question?",
-      descricao: "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.",
-      respostas: [
-        {
-          usuario: "Usuário Y",
-          periodo: "Período YY",
-          data: "12/12/2020",
-          resposta: "Resposta 1 para a pergunta."
-        },
-        {
-          usuario: "Usuário Z",
-          periodo: "Período ZZ",
-          data: "13/12/2020",
-          resposta: "Resposta 2 para a pergunta."
-        }
-      ]
-    }
-  ];
+  params = {
+    pagina: 0,
+    tamanho: 10
+  }
+  categoria: string ='';
 
   constructor(
     private readonly builder: FormBuilder,
@@ -70,21 +61,37 @@ export class TopicosComponent implements OnInit{
 
   ngOnInit(){
     this.changePage(true, false, false, '')
-    this.obterTopicos();
   }
 
   changePage(start: boolean, second: boolean, third: boolean, nome: string){
     this.start = start;
     this.second = second;
     this.third = third;
-    this.assunto = nome;
+    if(nome !== ''){
+      this.assunto = nome;
+      this.obterAssuntoCategoria(this.assunto);
+    }
   }
 
-  obterTopicos(){
+  obterTopicos(){ //para pegar todas, se precisar
     this.service.getAllTopicos().pipe(takeUntil(this.unsubscribeAll)).subscribe(
       (res: any) => {
-        console.log(res)
         this.topicos = res;
+      }
+    )
+  }
+
+  removerAcentuacoes(data: any){
+    const categoria = removerAcentuacoesEspacos(data);
+    return categoria;
+  }
+
+  obterAssuntoCategoria(categoria: string){
+    const data = removerAcentuacoesEspacos(categoria).toUpperCase();
+    this.service.getAllTopicosCategoria(data, this.params).pipe(takeUntil(this.unsubscribeAll)).subscribe(
+      (res: any) => {
+        this.topicos = res.content;
+        this.professor = res.content[0].professor;
       }
     )
   }
