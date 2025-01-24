@@ -85,7 +85,7 @@ export class ForumComponent {
     this.mostrarRespostas = !this.mostrarRespostas;
     this.service.getAllComentariosPost(id, this.params).pipe(takeUntil(this.unsubscribeAll)).subscribe(
       (res: any) => {
-        //console.log(res.content)
+        console.log(res.content)
         this.comentarios = res.content
       }
     );
