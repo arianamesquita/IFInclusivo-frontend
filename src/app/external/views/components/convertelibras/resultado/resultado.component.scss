@@ -1,0 +1,165 @@
+@import '/src/assets/colors/colors.scss';
+@import '/src/assets/fonts/fonts.scss';
+
+.bory {
+  background-color: $background;
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Navegação */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  font-size: 16px;
+}
+
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  padding-left: 90px;
+}
+
+.nav-link.voltar {
+  text-align: right;
+  padding-right: 90px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Título */
+.title {
+    color: #000;
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+/* Barra de busca */
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .search-bar .search-icon {
+    position: absolute;
+    left: calc(25% + 10px); /* Alinha a lupa dentro do campo de busca */
+    width: 20px;
+    height: 20px;
+  }
+  
+  .search-bar input {
+    width: 50%;
+    padding: 10px 15px 10px 45px; /* Espaço extra para o ícone */
+    border: none;
+    border-radius: 20px;
+    background-color: #e6d5f7;
+    font-size: 1rem;
+    color: #555555;
+  }
+  
+  .search-bar input::placeholder {
+    color: #b8b8b8;
+    font-style: italic;
+  }
+  /* Mensagem quando não há resultados */
+.no-results {
+    text-align: center;
+    margin-top: 20px;
+    color: #555;
+  }
+  
+  .no-results p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .suggest-button {
+    background-color: #7b57e3; /* Cor de destaque */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .suggest-button:hover {
+    background-color: #5e3cb5; /* Cor ao passar o mouse */
+  }
+  
+/* Imagem decorativa */
+
+  .img-libras {
+    position: absolute;
+    width: 18%;
+    left: 82%;
+    bottom: 0vh;
+    z-index: 1;
+}
+  
+  
+
+.cardtext {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  width: 90%;
+  max-width: 800px;
+}
+
+.text-card {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Adiciona animação suave */
+  
+    &:hover {
+      background-color: #f0f0f0; /* Cor ao passar o mouse */
+      transform: translateY(-5px); /* Efeito de elevação */
+      cursor: pointer;
+    }
+  }
+  
+  
+.text-card h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #84A6E0;
+}
+
+.text-card p {
+  font-size: 14px;
+  color: #555;
+}
+.card-content {
+    display: flex;
+    align-items: center;
+}
+.thumbnail {
+  width: 120px;
+  height: 90px;
+  border-radius: 8px;
+  margin-right: 15px;
+  object-fit: cover;
+}

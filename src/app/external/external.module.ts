@@ -28,6 +28,9 @@ import { ResultadoComponent } from './views/components/convertelibras/resultado/
     ExternalRoutingModule,
     SharedModule,
     FormsModule
-  ]
+  ],
+  exports: [
+    ResultadoComponent, // Exporta o ResultadoComponent
+  ],
 })
 export class ExternalModule { }

@@ -131,9 +131,15 @@
       font-size: 0.9rem;
       padding: 10px 15px 10px 40px;
     }
+    .img-libras-left,
+    .img-libras-right {
+      height: 50%; /* Reduz o tamanho da imagem decorativa */
+      transform: translateY(-50%);
+    }
     .texto-verde {
         width: 90%; /* Garante que a largura da div seja 90% do contêiner em telas menores */
       }
+      
   }
 
   /* Card individual */
@@ -174,7 +180,7 @@
     margin: 20px auto; /* Centraliza horizontalmente */
     padding: 20px; /* Adiciona espaçamento interno */
     border-radius: 20px;
-    background: #003737;
+    background: #DFF5F5;
 }
 
   .text {
@@ -191,4 +197,21 @@
     line-height: normal;
  
 }
+.img-libras {
+  position: absolute;
+  top: 50%; /* Centraliza verticalmente */
+  transform: translateY(-50%); /* Garante que o centro da imagem esteja no meio */
+  height: auto; /* Ajusta a altura para não distorcer a proporção */
+  z-index: -1; /* Coloca a imagem atrás do conteúdo principal */
+}
+
+.img-libras-left {
+  left: -100px; /* Empurra para fora da tela para ficar mais visível */
+}
+
+.img-libras-right {
+  right: -100px; /* Empurra para fora da tela para ficar mais visível */
+}
+
+
   

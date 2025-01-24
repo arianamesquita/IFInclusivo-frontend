@@ -1,1 +1,51 @@
-<p>resultado works!</p>
+<div class="bory">
+    <!-- Navegação -->
+    <div class="navigation">
+      <a href="#" class="nav-link">Início</a>
+      <a href="#" class="nav-link voltar">Voltar</a>
+    </div>
+  
+    <div class="container">
+      <h1 class="title">CONVERTE LIBRAS</h1>
+  
+      <!-- Barra de busca -->
+      <div class="search-bar">
+        <img src="assets/icons/libras_lupa_icon.svg" alt="Ícone de Lupa" class="search-icon" />
+        <input type="text" placeholder="Buscar" />
+      </div>
+
+      <!-- Mensagem caso não haja dados -->
+  <div *ngIf="results.length === 0" class="no-results">
+    <p>Nenhum Resultado encontrado!</p>
+    <button class="suggest-button" (click)="sugerirPalavra()">Sugerir Palavra</button>
+  </div>
+  
+      <!-- Lista de Resultados -->
+      <div class="cardtext">
+        <div class="text-card" *ngFor="let item of results">
+          <div class="card-content">
+            <!-- Miniatura do vídeo -->
+            <img
+              *ngIf="item.videoThumbnail"
+              [src]="item.videoThumbnail"
+              alt="Miniatura do vídeo"
+              class="thumbnail"
+            />
+  
+            <div class="text-details">
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Imagem decorativa no canto inferior direito -->
+<img
+src="../../../../assets/images/bubble_librasresultado_cyan.svg"
+alt="Imagem decorativa canto inferior direito"
+class="img-libras"
+/>
+  </div>
+  
