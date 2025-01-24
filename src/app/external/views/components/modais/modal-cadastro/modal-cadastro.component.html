@@ -13,12 +13,24 @@
                         <input formControlName="nome" class="custom-input" placeholder="Digite seu nome">
                     </div>
                     <div class="row">
-                        <span class="line">Login: </span>   
-                        <input formControlName="login" class="custom-input" placeholder="Digite seu login">
-                    </div>
-                    <div class="row">
                         <span class="line">Matrícula: </span>   
                         <input formControlName="matricula" type="number" class="custom-input" placeholder="Digite sua matrícula">
+                    </div>
+                    <div class="row">
+                        <span class="line">Curso: </span>   
+                        <mat-select  
+                            [(ngModel)]="cursoSelecionado" 
+                            [ngModelOptions]="{ standalone: true }"
+                            class="custom-input" 
+                            style="height: 16px; display: flex; align-items: center;"
+                            placeholder="Escolha seu curso"
+                            (selectionChange)="valueSelected($event)">
+                            <mat-option *ngFor="let curso of cursos" value="{{curso.id}}">{{curso.nome}}</mat-option>
+                        </mat-select>
+                    </div>
+                    <div class="row">
+                        <span class="line">Login: </span>   
+                        <input formControlName="login" class="custom-input" placeholder="Digite seu login">
                     </div>
                     <div class="row">
                         <span class="line">Senha: </span>   
@@ -26,7 +38,7 @@
                     </div>
                 </form>
                 <p class="row btn-bottom">
-                    <button mat-raised-button class="btn" (click)="cadastrar()">Cadastrar</button>
+                    <button mat-raised-button class="btn" (click)="cadastrar(form)">Cadastrar</button>
                 </p>
                 <p class="row btn-bottom">
                     Já possui conta? <button mat-button class="btn-white" (click)="direcionarLogin()">Entre</button>

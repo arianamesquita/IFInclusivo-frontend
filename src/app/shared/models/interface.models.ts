@@ -60,6 +60,14 @@ export interface Usuario {
     biografia: string
 }
 
+export interface Aluno {
+    id: number,
+    nome: string,
+    login: string, 
+    matricula: number,
+    senha: string
+}
+
 export function removerAcentuacoesEspacos(texto: string): string {
     return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ /g, "_");
 }

@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ExternalService } from '../../service/external.service';
-import { Subject, takeUntil } from 'rxjs';
+import { debounceTime, Subject, takeUntil } from 'rxjs';
 import { Professor, removerAcentuacoesEspacos, Topico } from 'src/app/shared/models/interface.models';
 
 @Component({
@@ -49,6 +49,7 @@ export class TopicosComponent implements OnInit{
     tamanho: 10
   }
   categoria: string ='';
+  categoriasFiltradas: { nome: string; icon: string; }[] = [];
 
   constructor(
     private readonly builder: FormBuilder,
@@ -60,7 +61,25 @@ export class TopicosComponent implements OnInit{
   }
 
   ngOnInit(){
-    this.changePage(true, false, false, '')
+    this.changePage(true, false, false, '');
+
+    this.categoriasFiltradas = [...this.categorias];
+
+    this.form.get('pesquisa')?.valueChanges
+      .pipe(
+        debounceTime(300),
+        takeUntil(this.unsubscribeAll)
+      )
+      .subscribe((valor: string) => {
+        if (valor) {
+          this.categoriasFiltradas = this.categorias.filter(categoria =>
+            categoria.nome.toLowerCase().includes(valor.toLowerCase())
+          );
+        } else {
+          this.categoriasFiltradas = [...this.categorias];
+        }
+        this.categorias = this.categoriasFiltradas;
+      });
   }
 
   changePage(start: boolean, second: boolean, third: boolean, nome: string){
@@ -96,7 +115,13 @@ export class TopicosComponent implements OnInit{
     )
   }
 
-  toggleRespostas(){
+  toggleRespostas(id: string){
     this.mostrarRespostas = !this.mostrarRespostas;
+    this.service.getAllComentariosPost(id, this.params).pipe(takeUntil(this.unsubscribeAll)).subscribe(
+      (res: any) => {
+        //console.log(res.content)
+        this.respostas = res.content
+      }
+    );
   }
 }

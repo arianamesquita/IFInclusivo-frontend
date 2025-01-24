@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { sinaisLibras } from 'src/app/shared/models/convertelibras.model';
 import { HttpService } from 'src/app/shared/service-http/http.service';
 
@@ -10,7 +11,11 @@ export class ExternalService {
   endpointLibras: string = 'sinais';
   endpointTopico: string = 'topicos';
   endpointForum: string = 'publicacoes';
-  endpointComentarios: string = 'comentarios/publicacao'
+  endpointCursos: string = 'cursos';
+  endpointAlunos: string = 'alunos';
+  endpointComentarios: string = 'comentarios/publicacao';
+  endpointBuscaRapidaForum: string = 'publicacoes/buscar-rapido';
+  endpointBuscaRapidaTopicos: string = 'topicos/buscar-rapido';
 
   constructor(private readonly http: HttpService) { }
 
@@ -50,9 +55,44 @@ export class ExternalService {
   }
 
   getAllTopicosCategoria(categoria: string, params: any){
-    return this.http.genericGetData(this.endpointForum, categoria, params)
+    return this.http.genericGetData(this.endpointTopico, categoria, params)
     .pipe((res) => {
       return res;
     })
+  }
+
+  cadastrarUsuario(body: FormGroup<any>, id: number){
+    return this.http.genericPostID(this.endpointAlunos, body, id)
+    .pipe((res) => {
+      return res;
+    })
+  }
+
+  getAllCursos(){
+    return this.http.genericGet(this.endpointCursos)
+    .pipe((res) => {
+      return res;
+    })
+  }
+
+  getAllAlunos(){
+    return this.http.genericGet(this.endpointAlunos)
+    .pipe((res) => {
+      return res;
+    })
+  }
+
+  searchPublicacaoForum(termo: string, params: any){
+    return this.http.genericSearchPublication(this.endpointBuscaRapidaForum, termo, params)
+      .pipe((res) => {
+        return res;
+      })
+  }
+
+  searchPublicacaoTopicos(termo: string, params: any){
+    return this.http.genericSearchPublication(this.endpointBuscaRapidaForum, termo, params)
+      .pipe((res) => {
+        return res;
+      })
   }
 }

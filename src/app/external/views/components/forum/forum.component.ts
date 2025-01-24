@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ExternalService } from '../../service/external.service';
-import { Subject, takeUntil } from 'rxjs';
+import { debounceTime, Subject, takeUntil } from 'rxjs';
 import { Comentarios, Publicacoes, Usuario } from 'src/app/shared/models/interface.models';
 
 @Component({
@@ -65,6 +65,20 @@ export class ForumComponent {
 
   ngOnInit(){
     this.getDataForum();
+
+    this.form.get('pesquisa')?.valueChanges
+    .pipe(
+      debounceTime(300),
+      takeUntil(this.unsubscribeAll) 
+    )
+    .subscribe((valor: string) => {
+      this.service.searchPublicacaoForum(valor, this.params).pipe(takeUntil(this.unsubscribeAll)).subscribe(
+        (res: any) => {
+          this.publicacoes = res.content;
+          console.log(res);
+        }
+      );
+    });
   }
 
   toggleRespostas(id: string){
@@ -74,7 +88,7 @@ export class ForumComponent {
         //console.log(res.content)
         this.comentarios = res.content
       }
-    )
+    );
   }
 
   getDataForum(){

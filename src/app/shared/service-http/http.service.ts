@@ -16,7 +16,12 @@ export class HttpService {
     return this.http.get<T>(url).pipe(map((res: T) => res));
   }
 
-  genericPost<T>(endpoint: string, data: any, headers: any): Observable<T>{
+  genericPostID<T>(endpoint: string, data: any, id: any): Observable<T>{
+    const url = `${this.apiUrl}/${endpoint}?idCurso=${id}`;
+    return this.http.post<T>(url, data).pipe(map((res: T) => res));
+  }
+
+  genericPost<T>(endpoint: string, data: any, headers?: any): Observable<T>{
     const httpOptions = { headers: new HttpHeaders(headers)};
     const url = `${this.apiUrl}/${endpoint}`;
     return this.http.post<T>(url, data, httpOptions).pipe(map((res: T) => res));
@@ -39,6 +44,11 @@ export class HttpService {
 
   genericGetComments<T>(endpoint: string, id?: string, params?: any): Observable<T>{
     const url = `${this.apiUrl}/${endpoint}/${id}?pagina=${params.pagina}&tamanho=${params.tamanho}`;
+    return this.http.get<T>(url).pipe(map((res: T) => res));
+  }
+
+  genericSearchPublication<T>(endpoint: string, termo: string, params: any): Observable<T>{
+    const url = `${this.apiUrl}/${endpoint}?termo=${termo}&pagina=${params.pagina}&tamanho=${params.tamanho}`;
     return this.http.get<T>(url).pipe(map((res: T) => res));
   }
 }

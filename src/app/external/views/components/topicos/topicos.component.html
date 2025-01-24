@@ -2,24 +2,26 @@
     <div class="background"></div>
     <div class="middle" *ngIf="!third">
         <span class="text">Tópicos</span>
-        <form [formGroup]="form">
-            <div class="input-wrapper">
-                <mat-icon class="icon">search</mat-icon>
-                <input class="custom-input" 
-                    formControlName="pesquisa" 
-                    matInput type="text"
-                    placeholder="Buscar">
+        <div class="container-first" *ngIf="start">
+            <form [formGroup]="form">
+                <div class="input-wrapper">
+                    <mat-icon class="icon">search</mat-icon>
+                    <input class="custom-input" 
+                        formControlName="pesquisa" 
+                        matInput type="text"
+                        placeholder="Buscar">
+                </div>
+            </form>
+            <div class="box-cards" >
+                <mat-card class="cards" *ngFor="let data of categorias">
+                    <button class="none" (click)="changePage(false, true, false, data.nome)">
+                        <img class="image" mat-card-image [src]="data.icon">
+                        <mat-card-content>
+                            <h3>{{ data.nome }}</h3>
+                        </mat-card-content>
+                    </button>
+                </mat-card>
             </div>
-        </form>
-        <div class="box-cards" *ngIf="start">
-            <mat-card class="cards" *ngFor="let data of categorias">
-                <button class="none" (click)="changePage(false, true, false, data.nome)">
-                    <img class="image" mat-card-image [src]="data.icon">
-                    <mat-card-content>
-                        <h3>{{ data.nome }}</h3>
-                    </mat-card-content>
-                </button>
-            </mat-card>
         </div>
         <div class="box-cards" *ngIf="second">
             <mat-card class="light-card" *ngFor="let busca of topicos">
@@ -53,14 +55,14 @@
                                 <img src="assets/icons/icon-person.svg" alt="Person Icon" class="custom-icon">
                             </div>
                             <mat-card-title>{{ busca.professor.nome }}</mat-card-title>
-                            <mat-card-actions class="date">Data: {{ busca.dataCriacao | date: 'dd/MM/yyyy'}}</mat-card-actions>
+                            <mat-card-actions class="date">Data: {{ busca.dataCriacao | date:'dd/MM/yyyy HH:mm:ss' }}</mat-card-actions>
                         </mat-card-header>
                         <mat-card-content>
                             <h2>{{ assunto }}</h2>
                             <p>{{ busca.titulo }}</p>
                         </mat-card-content>
                         <mat-card-actions align="end">
-                            <button mat-button (click)="toggleRespostas()">Ver respostas</button>
+                            <button mat-button (click)="toggleRespostas(busca.id.toString())">Ver respostas</button>
     
                             <div *ngIf="mostrarRespostas" class="answers" align="end">
                                 <div *ngFor="let data of respostas" class="answer-container">
@@ -71,10 +73,10 @@
                                             </div>
                                             <mat-card-title>{{ data.usuario }}</mat-card-title>
                                             <mat-card-subtitle>{{ data.periodo }}</mat-card-subtitle>
-                                            <mat-card-actions class="date">Data: {{ data.data }}</mat-card-actions>
+                                            <mat-card-actions class="date">Data: {{ data.data | date:'dd/MM/yyyy HH:mm:ss' }}</mat-card-actions>
                                         </mat-card-header>
                                         <mat-card-content>
-                                            <p>{{ data.resposta }}</p>
+                                            <p>{{ data.resposta | date:'dd/MM/yyyy HH:mm:ss' }}</p>
                                         </mat-card-content>
                                     </mat-card>
                                 </div>

@@ -44,6 +44,7 @@
             display: flex;
             width: 100%;
             justify-content: center;
+            margin-bottom: 60px;
 
             .custom-input {
                 width: 80%;
@@ -120,6 +121,13 @@
                 width: 100% !important;
             }
         }
+        .container-first {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
         .box-cards{
             width: 70%;
             display: flex;
@@ -127,7 +135,6 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
-            margin: 10vh 0;
             .cards {
                 width: 200px;
                 height: 180px;
