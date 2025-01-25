@@ -15,13 +15,13 @@ export interface Pergunta {
 }
 
 export interface Topico {
-    id: number,
+    id: string,
     descricao?: string,
     professor: Professor,
     dataCriacao: Date,
     categoria: string,
     titulo: string,
-    publicacoes?: []
+    publicacoes?: Publicacoes[]
 }
 
 export interface Professor {

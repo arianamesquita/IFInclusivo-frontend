@@ -47,6 +47,20 @@ export class ExternalService {
     })
   }
 
+  getComentariosId(id: string){
+    return this.http.genericGet(this.endpointComentarios, id)
+    .pipe((res) => {
+      return res;
+    })
+  }
+
+  getPublicacoesId(id: string){
+    return this.http.genericGet(this.endpointForum, id)
+    .pipe((res) => {
+      return res;
+    })
+  }
+
   getAllTopicos(){
     return this.http.genericGet(this.endpointTopico)
     .pipe((res) => {

@@ -14,7 +14,7 @@
             </form>
             <div class="box-cards" >
                 <mat-card class="cards" *ngFor="let data of categorias">
-                    <button class="none" (click)="changePage(false, true, false, data.nome)">
+                    <button class="none" (click)="changePage(false, true, false, data.nome, '')">
                         <img class="image" mat-card-image [src]="data.icon">
                         <mat-card-content>
                             <h3>{{ data.nome }}</h3>
@@ -25,7 +25,7 @@
         </div>
         <div class="box-cards" *ngIf="second">
             <mat-card class="light-card" *ngFor="let busca of topicos">
-                <button class="none" (click)="changePage(false, false, true, assunto)">
+                <button class="none" (click)="changePage(false, false, true, '', busca.id)">
                     <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
                     <mat-card-title>{{ assunto }}</mat-card-title>
@@ -62,21 +62,20 @@
                             <p>{{ busca.titulo }}</p>
                         </mat-card-content>
                         <mat-card-actions align="end">
-                            <button mat-button (click)="toggleRespostas(busca.id.toString())">Ver respostas</button>
+                            <button mat-button (click)="toggleRespostas(busca.id)">Ver respostas</button>
     
-                            <div *ngIf="mostrarRespostas" class="answers" align="end">
-                                <div *ngFor="let data of respostas" class="answer-container">
+                            <div *ngIf="mostrarRespostas[busca.id]" class="answers" align="end">
+                                <div *ngFor="let data of comentarios[busca.id]" class="answer-container">
                                     <mat-card class="answer-box box-questions">
                                         <mat-card-header>
                                             <div mat-card-avatar class="avatar">
                                                 <img src="assets/icons/icon-person.svg" alt="Person Icon" class="custom-icon">
                                             </div>
                                             <mat-card-title>{{ data.usuario }}</mat-card-title>
-                                            <mat-card-subtitle>{{ data.periodo }}</mat-card-subtitle>
-                                            <mat-card-actions class="date">Data: {{ data.data | date:'dd/MM/yyyy HH:mm:ss' }}</mat-card-actions>
+                                            <mat-card-actions class="date">Data: {{ data.dataCriacao | date:'dd/MM/yyyy HH:mm:ss' }}</mat-card-actions>
                                         </mat-card-header>
                                         <mat-card-content>
-                                            <p>{{ data.resposta }}</p>
+                                            <p>{{ data.content }}</p>
                                         </mat-card-content>
                                     </mat-card>
                                 </div>

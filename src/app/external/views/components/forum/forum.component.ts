@@ -19,12 +19,12 @@ export class ForumComponent {
     { nome: "Redes" }
   ]
   form: FormGroup;
-  mostrarRespostas = false;
+  mostrarRespostas: { [id: string]: boolean } = {};
 
   publicacoes: Publicacoes[] = [];
   userIds : any[] = [];
   usuarios: Usuario[] = [];
-  comentarios: Comentarios[] = [];
+  comentarios: { [id: string]: any[] } = {};
 
   params = {
     pagina: 0,
@@ -81,12 +81,15 @@ export class ForumComponent {
     });
   }
 
-  toggleRespostas(id: string){
-    this.mostrarRespostas = !this.mostrarRespostas;
+  toggleRespostas(id: string) {
+    this.mostrarRespostas[id] = !this.mostrarRespostas[id];
     this.service.getAllComentariosPost(id, this.params).pipe(takeUntil(this.unsubscribeAll)).subscribe(
       (res: any) => {
-        console.log(res.content)
-        this.comentarios = res.content
+        console.log(`Comentários para a pergunta ${id}:`, res.content);
+        this.comentarios[id] = res.content;
+      },
+      (error) => {
+        console.error(`Erro ao carregar comentários para a pergunta ${id}:`, error);
       }
     );
   }

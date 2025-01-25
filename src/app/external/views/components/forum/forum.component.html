@@ -38,8 +38,8 @@
                 <mat-card-actions align="end">
                     <button mat-button (click)="toggleRespostas(pergunta.id)">Ver respostas</button>
 
-                    <div *ngIf="mostrarRespostas" class="answers" align="end">
-                        <div *ngFor="let data of comentarios" class="answer-container">
+                    <div *ngIf="mostrarRespostas[pergunta.id]" class="answers" align="end">
+                        <div *ngFor="let data of comentarios[pergunta.id]" class="answer-container">
                             <mat-card class="answer-box box-questions">
                                 <mat-card-header>
                                     <div mat-card-avatar class="avatar">

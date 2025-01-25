@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ExternalService } from '../../service/external.service';
 import { debounceTime, Subject, takeUntil } from 'rxjs';
-import { Professor, removerAcentuacoesEspacos, Topico } from 'src/app/shared/models/interface.models';
+import { Comentarios, Professor, Publicacoes, removerAcentuacoesEspacos, Topico } from 'src/app/shared/models/interface.models';
 
 @Component({
   selector: 'app-topicos',
@@ -16,7 +16,7 @@ export class TopicosComponent implements OnInit{
   second: boolean = false;
   third: boolean = false;
   topicos: Topico[] = [];
-  mostrarRespostas = false;
+  mostrarRespostas: { [id: string]: boolean } = {};
   assunto: string = '';
   professor: any;
 
@@ -44,6 +44,8 @@ export class TopicosComponent implements OnInit{
     }
   ]
 
+  comentarios: { [id: string]: any[] } = {};
+
   params = {
     pagina: 0,
     tamanho: 10
@@ -61,7 +63,7 @@ export class TopicosComponent implements OnInit{
   }
 
   ngOnInit(){
-    this.changePage(true, false, false, '');
+    this.changePage(true, false, false, '', '');
 
     this.categoriasFiltradas = [...this.categorias];
 
@@ -82,7 +84,7 @@ export class TopicosComponent implements OnInit{
       });
   }
 
-  changePage(start: boolean, second: boolean, third: boolean, nome: string){
+  changePage(start: boolean, second: boolean, third: boolean, nome: string, id: string){
     this.start = start;
     this.second = second;
     this.third = third;
@@ -90,6 +92,18 @@ export class TopicosComponent implements OnInit{
       this.assunto = nome;
       this.obterAssuntoCategoria(this.assunto);
     }
+    if(id !== ''){
+      this.buscarPublicacoes(id);
+    }
+  }
+
+  buscarPublicacoes(id: string){
+    //this.service.getPublicacoesId(id).pipe(takeUntil(this.unsubscribeAll)).subscribe(
+    //  (res: any) => {
+        //console.log("publicacoes", res)
+        //this.topicos = res;
+     // }
+    //)
   }
 
   obterTopicos(){ //para pegar todas, se precisar
@@ -110,17 +124,21 @@ export class TopicosComponent implements OnInit{
     this.service.getAllTopicosCategoria(data, this.params).pipe(takeUntil(this.unsubscribeAll)).subscribe(
       (res: any) => {
         this.topicos = res.content;
+        this.comentarios = res.comentarios;
         this.professor = res.content[0].professor;
       }
     )
   }
 
-  toggleRespostas(id: string){
-    this.mostrarRespostas = !this.mostrarRespostas;
+  toggleRespostas(id: string) {
+    this.mostrarRespostas[id] = !this.mostrarRespostas[id];
     this.service.getAllComentariosPost(id, this.params).pipe(takeUntil(this.unsubscribeAll)).subscribe(
       (res: any) => {
-        //console.log(res.content)
-        this.respostas = res.content
+        //console.log(`Comentários para a pergunta ${id}:`, res.content);
+        this.comentarios[id] = res.content;
+      },
+      (error) => {
+        //console.error(`Erro ao carregar comentários para a pergunta ${id}:`, error);
       }
     );
   }
