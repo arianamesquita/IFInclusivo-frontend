@@ -1,0 +1,105 @@
+.bory {
+    background-color:  #E9F6F2;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+.midia-container {
+    display: flex;
+    flex-direction: row; /* Altera para disposição em linha */
+    justify-content: space-between;
+    gap: 200px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+  
+  .video-container {
+    flex: 2; /* Dá mais espaço ao vídeo */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha o conteúdo à esquerda */
+    gap: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  iframe {
+    width: 100%; /* Responsivo */
+    max-width: 560px; /* Limite máximo para o vídeo */
+    border: none;
+    border-radius: 8px;
+  }
+  
+  .video-container h2 {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    color: #004d40;
+  }
+  
+  .video-container p {
+    font-size: 0.875rem;
+    color: #777;
+  }
+  
+  .related-section {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+  }
+  
+  .related-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #4a90e2;
+  }
+  
+  .related-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .related-section li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .related-section li:hover {
+    background: #f0f0f0;
+  }
+  
+  .description-section {
+    background: #fff; /* Cor de fundo do card */
+    padding: 20px; /* Espaçamento interno para melhor visualização */
+    border-radius: 12px; /* Cantos arredondados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 100%; /* Largura total do container */
+    max-width: 800px; /* Limite máximo da largura */
+    margin: 20px auto; /* Centraliza horizontalmente e adiciona espaçamento vertical */
+  }
+  
+  .description-section h4 {
+    font-size: 18px;
+    color: #4a90e2; /* Cor do título */
+    margin-bottom: 12px; /* Espaço abaixo do título */
+  }
+  
+  .description-section p {
+    font-size: 16px;
+    color: #444; /* Cor do texto */
+    line-height: 1.6; /* Melhor espaçamento entre linhas */
+  }
+  

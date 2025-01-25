@@ -11,7 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { ModalCadastroComponent } from './views/components/modais/modal-cadastro/modal-cadastro.component';
 import { ModalLoginComponent } from './views/components/modais/modal-login/modal-login.component';
 import { ResultadoComponent } from './views/components/convertelibras/resultado/resultado.component';
+import { MidiaComponent } from './views/components/convertelibras/midia/midia.component';
 
+import { SafeUrlPipe } from './views/components/convertelibras/midia/safe-url.pipe';
 @NgModule({
   declarations: [ 
     HomeComponent, 
@@ -21,7 +23,9 @@ import { ResultadoComponent } from './views/components/convertelibras/resultado/
     ConvertelibrasComponent, 
     ModalCadastroComponent, 
     ModalLoginComponent, 
-    ResultadoComponent
+    ResultadoComponent, 
+    MidiaComponent,
+    SafeUrlPipe,
   ],
   imports: [
     CommonModule,
@@ -31,6 +35,7 @@ import { ResultadoComponent } from './views/components/convertelibras/resultado/
   ],
   exports: [
     ResultadoComponent, // Exporta o ResultadoComponent
+    MidiaComponent
   ],
 })
 export class ExternalModule { }

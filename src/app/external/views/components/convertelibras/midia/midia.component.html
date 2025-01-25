@@ -1,0 +1,35 @@
+<div class="bory">
+<div class="midia-container">
+    <!-- Vídeo e descrição -->
+    <div class="video-container">
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="YouTube video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+      <h2>{{ videoTitle }}</h2>
+      <p>Adicionado em {{ videoDate }}</p>
+    </div>
+  
+    <!-- Card Relacionados -->
+    <div class="related-section">
+      <h3>RELACIONADOS</h3>
+      <ul>
+        <li *ngFor="let related of relatedVideos" (click)="playVideo(related)">
+          <span>{{ related.title }}</span>
+          <button>❯</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Descrição -->
+  <div class="description-section">
+    <h4>Descrição:</h4>
+    <p>{{ videoDescription }}</p>
+  </div>
+</div>
