@@ -1,0 +1,30 @@
+<div class="bory">
+    <!-- Navegação -->
+    <div class="navigation">
+      <a routerLink="/" class="nav-link">Início</a>
+      <a routerLink="/voltar" class="nav-link voltar">Voltar</a>
+    </div>
+  
+    <!-- Título -->
+    <div class="header">
+      <h1>Redes</h1>
+      <p class="subtitle">Dicionário relacionado a palavras de Redes</p>
+    </div>
+  
+    <!-- Conteúdo -->
+    <div class="container">
+        <div class="card" *ngFor="let item of items">
+          <div class="image-wrapper">
+            <a [href]="item.videoUrl" target="_blank">
+              <img [src]="item.image" alt="{{ item.title }}" />
+              <div class="play-button">
+                <i class="fa fa-play"></i>
+              </div>
+            </a>
+          </div>
+          <h2>{{ item.title }}</h2>
+          <p>{{ item.description }}</p>
+        </div>
+      </div>      
+  </div>
+  

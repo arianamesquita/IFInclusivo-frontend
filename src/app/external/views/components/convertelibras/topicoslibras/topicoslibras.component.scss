@@ -1,0 +1,100 @@
+@import '/src/assets/colors/colors.scss';
+@import '/src/assets/fonts/fonts.scss';
+
+.bory {
+  background-color: $background;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden; /* Evitar rolagem horizontal */
+  padding: 20px;
+  box-sizing: border-box; /* Garante que padding não cause overflow */
+}
+
+/* Navegação */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  flex-wrap: wrap; /* Permite quebra de linha para telas menores */
+}
+
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-link.voltar {
+  text-align: right;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .subtitle {
+    font-size: 20px;
+    color: #84A6E0;
+    font-family: "Poppins-500-medium";
+  }
+}
+
+/* Container */
+.container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap; /* Evitar rolagem horizontal */
+  max-width: 100%;
+  box-sizing: border-box;
+
+  .card {
+    background: #D9EFE3;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Define um tamanho fixo para os cards */
+    max-width: 100%; /* Garante que os cards não ultrapassem o limite */
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+
+    .image-wrapper {
+      position: relative;
+
+      img {
+        border-radius: 8px;
+        width: 100%;
+      }
+
+      .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(255, 0, 255, 0.8);
+        color: #fff;
+        border-radius: 50%;
+        padding: 10px;
+        font-size: 24px;
+      }
+    }
+
+    h2 {
+      margin: 20px 0 10px;
+      font-size: 1.2rem;
+    }
+
+    p {
+      color: #666;
+      font-size: 0.9rem;
+    }
+  }
+}

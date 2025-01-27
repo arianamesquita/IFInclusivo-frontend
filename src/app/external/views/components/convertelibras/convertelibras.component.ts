@@ -29,9 +29,16 @@ export class ConvertelibrasComponent {
     this.obterSinaisCadastrados(); // Chama o método que obtém os sinais
   }
 
+
+
   // Método para navegação
   navigateTo(page: string): void {
     this.router.navigate([page]); // Navega para a página correspondente
+  }
+
+  navigateToTopicosLibras() {
+    console.log('Navegando para Tópicos Libras'); // Adicione esta linha para verificar
+    this.router.navigate(['/topicoslibras']);
   }
 
   // Método para obter sinais cadastrados

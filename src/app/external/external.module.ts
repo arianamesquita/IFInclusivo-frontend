@@ -14,6 +14,7 @@ import { ResultadoComponent } from './views/components/convertelibras/resultado/
 import { MidiaComponent } from './views/components/convertelibras/midia/midia.component';
 
 import { SafeUrlPipe } from './views/components/convertelibras/midia/safe-url.pipe';
+import { TopicoslibrasComponent } from './views/components/convertelibras/topicoslibras/topicoslibras.component';
 @NgModule({
   declarations: [ 
     HomeComponent, 
@@ -26,6 +27,7 @@ import { SafeUrlPipe } from './views/components/convertelibras/midia/safe-url.pi
     ResultadoComponent, 
     MidiaComponent,
     SafeUrlPipe,
+    TopicoslibrasComponent,
   ],
   imports: [
     CommonModule,
@@ -35,7 +37,8 @@ import { SafeUrlPipe } from './views/components/convertelibras/midia/safe-url.pi
   ],
   exports: [
     ResultadoComponent, // Exporta o ResultadoComponent
-    MidiaComponent
+    MidiaComponent,
+    TopicoslibrasComponent
   ],
 })
 export class ExternalModule { }
