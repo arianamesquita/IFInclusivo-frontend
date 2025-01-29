@@ -14,7 +14,7 @@
             </form>
             <div class="box-cards" >
                 <mat-card class="cards" *ngFor="let data of categorias">
-                    <button class="none" (click)="changePage(false, true, false, data.nome, '')">
+                    <button class="none" (click)="changePage(false, true, false, data.nome)">
                         <img class="image" mat-card-image [src]="data.icon">
                         <mat-card-content>
                             <h3>{{ data.nome }}</h3>
@@ -25,7 +25,7 @@
         </div>
         <div class="box-cards" *ngIf="second">
             <mat-card class="light-card" *ngFor="let busca of topicos">
-                <button class="none" (click)="changePage(false, false, true, '', busca.id)">
+                <button class="none" (click)="buscarPublicacoes(busca.id)">
                     <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
                     <mat-card-title>{{ assunto }}</mat-card-title>
@@ -48,30 +48,31 @@
                   </mat-card-header>
             </mat-card>
             <div class="box-row">
-                <div class="box-cards" *ngFor="let busca of topicos">
+                <div class="box-cards" *ngFor="let busca of publicacoes">
                     <mat-card class="box-questions">
                         <mat-card-header>
                             <div mat-card-avatar class="avatar">
                                 <img src="assets/icons/icon-person.svg" alt="Person Icon" class="custom-icon">
                             </div>
-                            <mat-card-title>{{ busca.professor.nome }}</mat-card-title>
+                            <mat-card-title>{{ busca.usuario.nome }}</mat-card-title>
+                            <mat-card-subtitle>{{ busca.usuario.biografia }}</mat-card-subtitle>
                             <mat-card-actions class="date">Data: {{ busca.dataCriacao | date:'dd/MM/yyyy HH:mm:ss' }}</mat-card-actions>
                         </mat-card-header>
                         <mat-card-content>
-                            <h2>{{ assunto }}</h2>
-                            <p>{{ busca.titulo }}</p>
+                            <h2>{{ busca.titulo }}</h2>
+                            <p>{{ busca.text }}</p>
                         </mat-card-content>
                         <mat-card-actions align="end">
                             <button mat-button (click)="toggleRespostas(busca.id)">Ver respostas</button>
     
                             <div *ngIf="mostrarRespostas[busca.id]" class="answers" align="end">
-                                <div *ngFor="let data of comentarios[busca.id]" class="answer-container">
+                                <div *ngFor="let data of comentarios" class="answer-container">
                                     <mat-card class="answer-box box-questions">
                                         <mat-card-header>
                                             <div mat-card-avatar class="avatar">
                                                 <img src="assets/icons/icon-person.svg" alt="Person Icon" class="custom-icon">
                                             </div>
-                                            <mat-card-title>{{ data.usuario }}</mat-card-title>
+                                            <mat-card-title>{{ data.usuario.nome }}</mat-card-title>
                                             <mat-card-actions class="date">Data: {{ data.dataCriacao | date:'dd/MM/yyyy HH:mm:ss' }}</mat-card-actions>
                                         </mat-card-header>
                                         <mat-card-content>
@@ -83,6 +84,17 @@
                         </mat-card-actions>
                     </mat-card>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="error-null" *ngIf="errorNull">
+        <div class="container-error">
+            <div>Não há publicações para este tópico ainda!!</div>
+            <div class="error-button">
+                <button 
+                (click)="voltar()"
+                mat-raised-button 
+                >Voltar</button>
             </div>
         </div>
     </div>

@@ -15,6 +15,7 @@ export class ExternalService {
   endpointAlunos: string = 'alunos';
   endpointComentarios: string = 'comentarios/publicacao';
   endpointBuscaRapidaForum: string = 'publicacoes/buscar-rapido';
+  endpointBuscaTopicoForum: string = 'publicacoes/buscar-topico';
   endpointBuscaRapidaTopicos: string = 'topicos/buscar-rapido';
 
   constructor(private readonly http: HttpService) { }
@@ -105,6 +106,13 @@ export class ExternalService {
 
   searchPublicacaoTopicos(termo: string, params: any){
     return this.http.genericSearchPublication(this.endpointBuscaRapidaForum, termo, params)
+      .pipe((res) => {
+        return res;
+      })
+  }
+
+  searchPublicacaoporTopicos(id: string, params: any){
+    return this.http.genericSearchPublicationTopic(this.endpointBuscaTopicoForum, id, params)
       .pipe((res) => {
         return res;
       })

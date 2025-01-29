@@ -51,4 +51,9 @@ export class HttpService {
     const url = `${this.apiUrl}/${endpoint}?termo=${termo}&pagina=${params.pagina}&tamanho=${params.tamanho}`;
     return this.http.get<T>(url).pipe(map((res: T) => res));
   }
+
+  genericSearchPublicationTopic<T>(endpoint: string, termo: string, params: any): Observable<T>{
+    const url = `${this.apiUrl}/${endpoint}?idTopico=${termo}&pagina=${params.pagina}&tamanho=${params.tamanho}`;
+    return this.http.get<T>(url).pipe(map((res: T) => res));
+  }
 }

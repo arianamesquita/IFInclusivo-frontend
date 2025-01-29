@@ -21,7 +21,7 @@ export interface Topico {
     dataCriacao: Date,
     categoria: string,
     titulo: string,
-    publicacoes?: Publicacoes[]
+    quantidadePublicacoes: number;
 }
 
 export interface Professor {

@@ -115,7 +115,7 @@
             width: 100%;
             display: flex;
             flex-direction: column ;
-            gap: 5vh;
+            gap: 3vh;
             .box-cards{
                 margin: 0 !important;
                 width: 100% !important;
@@ -144,7 +144,7 @@
                 align-items: center;
                 justify-content: center;
                 border-radius: 40px;
-                margin: 30px 30px;
+                margin: 20px 30px;
                 transition: transform 0.3s, box-shadow 0.3s;
                 &:hover {
                     transform: translateY(-5px);
@@ -258,9 +258,8 @@
                         display: flex;
                         align-items: flex-end;
                         flex-direction: column;
-                        width: 100%;
+                        width: 90%;
                         margin-top: 10px;
-
                     }
                 }
                 .answer-container{
@@ -269,6 +268,37 @@
                     align-items: flex-end;
                     width: 100%;
                     padding-top: 30px;
+                }
+            }
+        }
+    }
+    .error-null {
+        width: 80%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-family: "Poppins-500-medium";
+        .container-error{
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-around;
+            .error-button{
+                display: flex;
+                flex-direction: column;
+                button{
+                    margin-top: 40px;
+                    width: 232px;
+                    height: 40px;
+                    background-color: $light-purple;
+                    border-radius: 15px;
+                    font-size: 20px;
+                    font-family: "Poppins-600";
+                    color: $btn-text;
                 }
             }
         }

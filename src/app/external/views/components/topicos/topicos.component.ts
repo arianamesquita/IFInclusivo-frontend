@@ -16,9 +16,10 @@ export class TopicosComponent implements OnInit{
   second: boolean = false;
   third: boolean = false;
   topicos: Topico[] = [];
-  mostrarRespostas: { [id: string]: boolean } = {};
   assunto: string = '';
   professor: any;
+  errorNull: boolean = false;
+  publicacoes: Publicacoes[] = [];
 
   categorias = [
     {nome: "Redes", icon : '../../../../../assets/icons/icon-redes.svg'},
@@ -44,8 +45,9 @@ export class TopicosComponent implements OnInit{
     }
   ]
 
-  comentarios: { [id: string]: any[] } = {};
-
+  mostrarRespostas: { [key: string]: boolean } = {};
+  comentarios: Comentarios[] = [];
+  
   params = {
     pagina: 0,
     tamanho: 10
@@ -63,7 +65,7 @@ export class TopicosComponent implements OnInit{
   }
 
   ngOnInit(){
-    this.changePage(true, false, false, '', '');
+    this.changePage(true, false, false, '');
 
     this.categoriasFiltradas = [...this.categorias];
 
@@ -84,7 +86,7 @@ export class TopicosComponent implements OnInit{
       });
   }
 
-  changePage(start: boolean, second: boolean, third: boolean, nome: string, id: string){
+  changePage(start: boolean, second: boolean, third: boolean, nome: string){
     this.start = start;
     this.second = second;
     this.third = third;
@@ -92,18 +94,25 @@ export class TopicosComponent implements OnInit{
       this.assunto = nome;
       this.obterAssuntoCategoria(this.assunto);
     }
-    if(id !== ''){
-      this.buscarPublicacoes(id);
-    }
   }
 
   buscarPublicacoes(id: string){
-    //this.service.getPublicacoesId(id).pipe(takeUntil(this.unsubscribeAll)).subscribe(
-    //  (res: any) => {
-        //console.log("publicacoes", res)
-        //this.topicos = res;
-     // }
-    //)
+    this.service.searchPublicacaoporTopicos(id, this.params).pipe(takeUntil(this.unsubscribeAll)).subscribe(
+      (res: any) => {
+        if(res.content.length !== 0){
+          this.changePage(false, false, true, '');
+          this.publicacoes = res.content;
+        } else { 
+          this.changePage(false, false, false, '');
+          this.errorNull = true;
+        }
+      }
+    )
+  }
+
+  voltar(){
+    this.errorNull = false;
+    this.changePage(true, false, false, '');
   }
 
   obterTopicos(){ //para pegar todas, se precisar
@@ -129,16 +138,14 @@ export class TopicosComponent implements OnInit{
       }
     )
   }
-
   toggleRespostas(id: string) {
     this.mostrarRespostas[id] = !this.mostrarRespostas[id];
     this.service.getAllComentariosPost(id, this.params).pipe(takeUntil(this.unsubscribeAll)).subscribe(
       (res: any) => {
-        //console.log(`Comentários para a pergunta ${id}:`, res.content);
-        this.comentarios[id] = res.content;
+        this.comentarios = res.content;
       },
       (error) => {
-        //console.error(`Erro ao carregar comentários para a pergunta ${id}:`, error);
+        console.error(`Erro ao carregar comentários para a pergunta ${id}:`, error);
       }
     );
   }
