@@ -19,6 +19,7 @@
         top: 0;
         left: 0;
         width: 100%;
+        opacity: 50%;
         height: 100%;
         z-index: 0;
     }
@@ -38,7 +39,7 @@
             width: 35vw;
             height: auto;
             border-radius: 2vw;
-            background-color: $light-purple;
+            background-color: rgba($light-purple, 0.3);
             font-family: "Poppins-500";
             font-size: 2.5vh;
             color: $black;
@@ -104,7 +105,7 @@
         .info{
             width: 24vw;
             height: 6vh;
-            background-color: $btn-purple;
+            background-color: rgba($btn-purple, 0.70);
             border-radius: 3vw;
             display: flex;
             align-items: center;

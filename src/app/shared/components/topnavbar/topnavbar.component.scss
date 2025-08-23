@@ -3,7 +3,7 @@
 .box {
     width: 100vw;
     height: 20%;
-    background-color: $green;
+    background-color: rgba($green, 0.7);
     display: flex;
     flex-direction: row;
 }
@@ -17,6 +17,7 @@
     top: -50px;
     right: 0;
     z-index: 1;
+    opacity: 80%;
 }
 
 .bubble_cyan {
@@ -49,7 +50,7 @@
     justify-content: center;
     gap: 20px;
     .buttons{
-        background-color: $btn-purple;
+        background-color: rgba($btn-purple, 0.6);
         border-radius: 12px;
     }
     .login{
@@ -117,7 +118,7 @@
             width: 32px;
             height: 32px;
             border-radius: 50px;
-            background: $btn-purple;
+            background: rgba($btn-purple, 0.6);
             border: none;
             outline: none;
             box-shadow: none;
@@ -164,7 +165,7 @@
             }
         }
         .buttons{
-            background-color: $btn-purple;
+            background-color: rgba($btn-purple, 0.6);
             border-radius: 12px;
         }
         .login{
@@ -204,7 +205,7 @@
             align-items: center;
         }
         .lilas {
-            background-color: $btn-purple;
+            background-color: rgba($btn-purple, 0.7);
             color: $btn-text;
         }
     }

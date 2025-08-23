@@ -17,6 +17,7 @@
       position: absolute;
       top: 0;
       left: 0;
+      opacity: 50%;
       width: 100%;
       height: 100%;
       z-index: 0;
@@ -88,7 +89,7 @@
 
 /* Contêiner de cada info-box */
 .info-box {
-  background-color: $btn-purple;
+  background-color: rgba($btn-purple, 0.3);
   color: $black;
   border-radius: 10px;
   padding: 20px;
